@@ -3,53 +3,55 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+
+/* 追記分（Input Processorsでレイヤー別動作やスクロール変換を使うため） */
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/input_transform.h>
 
-/ {
+/* ================== ここからDevicetreeオーバレイ本体 ================== */
+ / {
+    /* --- 縦/横スクロール専用の Code Mapper を自作 --- */
+    input_processors {
+        my_vert_scroll: my_vert_scroll {
+            compatible = "zmk,input-processor-code-mapper";
+            #input-processor-cells = <0>;
+            type = <INPUT_EV_REL>;
+            map = <INPUT_REL_Y INPUT_REL_WHEEL>;
+        };
 
-    / {
-        /* --- 縦/横スクロール専用の Code Mapper を自作 --- */
-        input_processors {
-            my_vert_scroll: my_vert_scroll {
-                compatible = "zmk,input-processor-code-mapper";
-                #input-processor-cells = <0>;
-                type = <INPUT_EV_REL>;
-                map = <INPUT_REL_Y INPUT_REL_WHEEL>;
-            };
+        my_horiz_scroll: my_horiz_scroll {
+            compatible = "zmk,input-processor-code-mapper";
+            #input-processor-cells = <0>;
+            type = <INPUT_EV_REL>;
+            map = <INPUT_REL_X INPUT_REL_HWHEEL>;
+        };
 
-            my_horiz_scroll: my_horiz_scroll {
-                compatible = "zmk,input-processor-code-mapper";
-                #input-processor-cells = <0>;
-                type = <INPUT_EV_REL>;
-                map = <INPUT_REL_X INPUT_REL_HWHEEL>;
-            };
-
-            /* しきい値・除外キーを調整したくなった時のためのテンプレ例（未使用でもOK） */
-            /omit-if-no-ref/ my_temp_layer: my_temp_layer {
-                compatible = "zmk,input-processor-temp-layer";
-                #input-processor-cells = <2>;
-                /* 例: ポインタ発動前に2秒間キータップが無ければ有効化
-                require-prior-idle-ms = <2000>;
-                /* 無効化のきっかけにしないキー位置番号（必要なら後で入れる）
-                // excluded-positions = < 10 11 12 >;
-                */
-            };
+        /* しきい値・除外キーを調整したくなった時のためのテンプレ（現時点では未使用） */
+        /omit-if-no-ref/ my_temp_layer: my_temp_layer {
+            compatible = "zmk,input-processor-temp-layer";
+            #input-processor-cells = <2>;
+            /* 例: ポインタ発動前に2秒間キータップが無ければ有効化したい場合に使う
+             * require-prior-idle-ms = <2000>;
+             * 無効化のきっかけにしないキー位置番号（必要になったら列挙）
+             * excluded-positions = <10 11 12>;
+             */
         };
     };
 
-
+    /* --- コンボ定義（安全形に整形） --- */
     combos {
         compatible = "zmk,combos";
 
-        bt_clear {
-            bindings = <&bt BT_CLR>;
+        combo_bt_clear {
+            timeout-ms = <50>;
             key-positions = <28 29>;
             layers = <2>;
+            bindings = <&bt BT_CLR>;
         };
     };
 
+    /* --- キーマップ --- */
     keymap {
         compatible = "zmk,keymap";
 
@@ -153,28 +155,32 @@
             >;
         };
     };
-};
+}; /* ===== / ここまで ===== */
 
-/* === リスナーへの割当（ラベル名は実機に合わせて変更！） === */
+/* === トラックボール入力リスナーへの割当（※ラベル名は機種で異なる場合あり） ===
+ * まずは &pointing_listener で試してください。
+ * もしビルドで「undefined label &pointing_listener」等が出たら、
+ * リポジトリ内検索で “_listener {” を探し、正しいラベル名（例：&trackball_listener 等）に置換します。
+ */
 &pointing_listener {
-    /* いつでも：ポインタ入力が来たら Layer1 を一時有効（1.5秒無操作で自動OFF） */
+    /* ポインタ入力が来たら Layer1 を一時有効（1.5秒無操作で自動OFF） */
     input-processors = <&zip_temp_layer 1 1500>;
 
-    /* Layer3 アクティブ中は「縦スクロール」に変換 */
+    /* Layer3: 縦スクロール（Y→Wheel） */
     scroll_v {
         layers = <3>;
         input-processors = <&my_vert_scroll>;
         process-next;
     };
 
-    /* Layer4 アクティブ中は「横スクロール」に変換 */
+    /* Layer4: 横スクロール（X→HWheel） */
     scroll_h {
         layers = <4>;
         input-processors = <&my_horiz_scroll>;
         process-next;
     };
 
-    /* 速度プリセット：Layer5/6 = カーソル高速/低速、Layer7/8 = スクロール高速/低速 */
+    /* 速度プリセット: Layer5/6 = カーソル高速/低速, Layer7/8 = スクロール高速/低速 */
     speed_fast {
         layers = <5>;
         input-processors = <&zip_xy_scaler 2 1>;
