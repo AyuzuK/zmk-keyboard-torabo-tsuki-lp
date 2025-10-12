@@ -157,12 +157,8 @@
     };
 }; /* ===== / ここまで ===== */
 
-/* === トラックボール入力リスナーへの割当（※ラベル名は機種で異なる場合あり） ===
- * まずは &pointing_listener で試してください。
- * もしビルドで「undefined label &pointing_listener」等が出たら、
- * リポジトリ内検索で “_listener {” を探し、正しいラベル名（例：&trackball_listener 等）に置換します。
- */
-&pointing_listener {
+/* === トラックボール入力リスナーへの割当（この機種は trackball_listener） === */
+&trackball_listener {
     /* ポインタ入力が来たら Layer1 を一時有効（1.5秒無操作で自動OFF） */
     input-processors = <&zip_temp_layer 1 1500>;
 
