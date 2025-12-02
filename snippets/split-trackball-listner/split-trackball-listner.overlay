@@ -13,7 +13,6 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
         status = "okay";
-        // ここも同様に「引数 1個」が必要
-        input-processors = <&zip_xy_transform (0)>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     };
 };
