@@ -3,6 +3,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
-    // 一時テスト用：XとYを入れ替える
+    // ★テスト用：XY入れ替え（向き確認のため）
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
-}
+};
