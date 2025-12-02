@@ -13,6 +13,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
         status = "okay";
+        // ★テスト用：XY入れ替え（向き確認のため）
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     };
 };
