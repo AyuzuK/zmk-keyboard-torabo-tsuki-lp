@@ -159,8 +159,11 @@
 
 /* === トラックボール入力リスナーへの割当（この機種は trackball_listener） === */
 &trackball_listener {
-    /* ポインタ入力が来たら Layer1 を一時有効（1.5秒無操作で自動OFF） */
-    input-processors = <&zip_temp_layer 1 1500>;
+    /* ★向き補正（公式相当）＋ポインタ入力時に Layer1 を一時有効にする */
+    input-processors = <
+        &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+        &zip_temp_layer 1 1500
+    >;
 
     /* Layer3: 縦スクロール（Y→Wheel） */
     scroll_v {
@@ -198,3 +201,4 @@
         process-next;
     };
 };
+
