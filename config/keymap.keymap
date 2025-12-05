@@ -1,17 +1,19 @@
+/* 追記分（Input Processorsでレイヤー別動作やスクロール変換を使うため） */
+
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
-/* 追記分（Input Processorsでレイヤー別動作やスクロール変換を使うため） */
-#include <input/processors.dtsi>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <dt-bindings/zmk/input_transform.h>
-
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
- / {
+
+/ {
     /* --- 縦/横スクロール専用の Code Mapper を自作 --- */
+
     input_processors {
         my_vert_scroll: my_vert_scroll {
             compatible = "zmk,input-processor-code-mapper";
@@ -28,9 +30,13 @@
         };
 
         /* しきい値・除外キーを調整したくなった時のためのテンプレ（現時点では未使用） */
-        /omit-if-no-ref/ my_temp_layer: my_temp_layer {
+
+        /omit-if-no-ref/
+
+        my_temp_layer: my_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
+
             /* 例: ポインタ発動前に2秒間キータップが無ければ有効化したい場合に使う
              * require-prior-idle-ms = <2000>;
              * 無効化のきっかけにしないキー位置番号（必要になったら列挙）
@@ -40,6 +46,7 @@
     };
 
     /* --- コンボ定義（安全形に整形） --- */
+
     combos {
         compatible = "zmk,combos";
 
@@ -52,16 +59,17 @@
     };
 
     /* --- キーマップ --- */
+
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
+        default {
             bindings = <
-&none  &none             &none   &none  &none  &none                                                 &none        &none            &none          &none     &none                 &none
-&none  &kp Q             &kp W   &kp E  &kp R  &kp T                                                 &kp Y        &kp U            &kp I          &kp O     &kp P                 &none
-&none  &mt LCTRL A       &kp S   &kp D  &kp F  &kp G        &none               &none                &kp H        &kp J            &kp K          &kp L     &mt RCTRL MINUS       &none
-&none  &mt LEFT_SHIFT Z  &kp X   &kp C  &kp V  &kp B        &kp TAB             &kp TAB              &kp N        &kp M            &kp COMMA      &kp DOT   &mt RIGHT_SHIFT FSLH  &none
-&none  &mt LEFT_WIN ESC  &tog 2  &none  &none  &lt 4 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 3 SPACE  &lt 5 BACKSPACE  &mt RCTRL DEL  &kp RGUI  &kp RCTRL             &none
+&none  &none             &none           &none  &none  &none                                                 &none        &none            &none          &none     &none                 &none
+&none  &kp Q             &kp W           &kp E  &kp R  &kp T                                                 &kp Y        &kp U            &kp I          &kp O     &kp P                 &none
+&none  &mt LCTRL A       &kp S           &kp D  &kp F  &kp G        &none               &none                &kp H        &kp J            &kp K          &kp L     &mt RCTRL MINUS       &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C  &kp V  &kp B        &kp TAB             &kp TAB              &kp N        &kp M            &kp COMMA      &kp DOT   &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none  &none  &lt 4 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 3 SPACE  &lt 5 BACKSPACE  &mt RCTRL DEL  &kp RGUI  &kp RCTRL             &none
             >;
         };
 
@@ -316,7 +324,6 @@
         };
     };
 }; /* ===== / ここまで ===== */
-
 /* === トラックボール入力リスナーへの割当（この機種は trackball_listener） === */
 /*
  * NOTE: torabo-tsuki LP トラックボール設定について
@@ -329,12 +336,14 @@
 
 &trackball_listener {
     /* ★向き補正（公式相当）＋ポインタ入力時に自動マウスLayer20 を一時有効にする */
+
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         &zip_temp_layer 20 1500
     >;
 
     /* Layer22: 縦スクロール（Y→Wheel） */
+
     scroll_v {
         layers = <22>;
         input-processors = <&my_vert_scroll>;
@@ -342,6 +351,7 @@
     };
 
     /* Layer4: 横スクロール（X→HWheel） */
+
     scroll_h {
         layers = <23>;
         input-processors = <&my_horiz_scroll>;
@@ -349,6 +359,7 @@
     };
 
     /* 速度プリセット: Layer24 = スクロール高速 */
+
     scrl_fast {
         layers = <24>;
         input-processors = <&zip_scroll_scaler 2 1>;
@@ -356,11 +367,10 @@
     };
 
     /* 速度プリセット: Layer25 = カーソル低速 */
+
     speed_slow {
         layers = <25>;
         input-processors = <&zip_xy_scaler 1 2>;
         process-next;
     };
 };
-
-
