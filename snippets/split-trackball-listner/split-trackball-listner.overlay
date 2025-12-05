@@ -1,4 +1,14 @@
 /{
+
+    /*
+     * NOTE:
+     *  このスニペットで定義される listener も、
+     *  config/keymap.keymap で `&trackball_listener` が再定義されている場合は
+     *  そちらに上書きされます。
+     *  トラックボールの向き・スクロールのカスタムは
+     *  keymap.keymap 側で管理する前提です。
+     */
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -13,7 +23,6 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
         status = "okay";
-        // ★テスト用：XY入れ替え（向き確認のため）
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
