@@ -355,11 +355,12 @@
         process-next;
     };
 
-　　/* 速度プリセット: /Layer25 = カーソル低速 */ 
+    /* 速度プリセット: Layer25 = カーソル低速 */
     speed_slow {
         layers = <25>;
         input-processors = <&zip_xy_scaler 1 2>;
         process-next;
     };
 };
+
 
