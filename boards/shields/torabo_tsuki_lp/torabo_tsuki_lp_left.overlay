@@ -2,7 +2,14 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+/*
+ * NOTE:
+ *  トラックボール関連の設定は config/keymap.keymap 内に
+ *  `&trackball_listener { ... }` がある場合、そちらで上書きされます。
+ *  keymap側で listener を再定義している間は、ここで input-processors を
+ *  変更しても反映されないので注意してください。
+ */
+
 &trackball_listener {
-    // ★テスト用：XY入れ替え（向き確認のため）
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
