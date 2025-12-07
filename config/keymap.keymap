@@ -22,6 +22,7 @@
 
     input_processors {
         /* --- 縦スクロール専用 Code Mapper（Y → WHEEL） --- */
+
         my_vert_scroll: my_vert_scroll {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
@@ -30,6 +31,7 @@
         };
 
         /* --- 横スクロール専用 Code Mapper（X → HWHEEL） --- */
+
         my_horiz_scroll: my_horiz_scroll {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
@@ -38,27 +40,35 @@
         };
 
         /* --- カーソル X だけスケール 0倍にする（縦スクロール時に使用） --- */
+
         lock_cursor_x: lock_cursor_x {
             compatible = "zmk,input-processor-scaler";
             #input-processor-cells = <2>;   /* パラメータ 2つ（分子, 分母） */
             type = <INPUT_EV_REL>;
+
             /* X 方向の相対移動だけを対象 */
+
             codes = <INPUT_REL_X>;
             track-remainders;
         };
 
         /* --- カーソル Y だけスケール 0倍にする（横スクロール時に使用） --- */
+
         lock_cursor_y: lock_cursor_y {
             compatible = "zmk,input-processor-scaler";
             #input-processor-cells = <2>;   /* パラメータ 2つ（分子, 分母） */
             type = <INPUT_EV_REL>;
+
             /* Y 方向の相対移動だけを対象 */
+
             codes = <INPUT_REL_Y>;
             track-remainders;
         };
 
         /* しきい値・除外キーを調整したくなった時のためのテンプレ（現時点では未使用） */
+
         /omit-if-no-ref/
+
         my_temp_layer: my_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
@@ -72,6 +82,7 @@
     };
 
     /* --- コンボ定義（安全形に整形） --- */
+
     combos {
         compatible = "zmk,combos";
 
@@ -113,9 +124,9 @@
         default {
             bindings = <
 &none  &none             &none           &none     &none  &none                                                 &none        &none            &none          &none     &none                 &none
-&none  &kp Q             &kp W           &lt 24 E  &kp R  &kp T                                                 &kp Y        &kp U            &kp I          &kp O     &kp P                 &none
-&none  &mt LCTRL A       &kp S           &lt 22 D  &kp F  &kp G        &none               &none                &kp H        &kp J            &kp K          &kp L     &mt RCTRL MINUS       &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &lt 23 C  &kp V  &kp B        &kp TAB             &kp TAB              &kp N        &kp M            &kp COMMA      &kp DOT   &mt RIGHT_SHIFT FSLH  &none
+&none  &kp Q             &kp W           &kp E     &kp R  &kp T                                                 &kp Y        &kp U            &kp I          &kp O     &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &kp F  &kp G        &none               &none                &kp H        &kp J            &kp K          &kp L     &mt RCTRL MINUS       &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &lt 24 C  &kp V  &kp B        &kp TAB             &kp TAB              &kp N        &kp M            &kp COMMA      &kp DOT   &mt RIGHT_SHIFT FSLH  &none
 &none  &tog 21           &kp ESC         &none     &none  &lt 4 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 3 SPACE  &lt 5 BACKSPACE  &mt RCTRL DEL  &kp RGUI  &kp RCTRL             &none
             >;
         };
@@ -312,21 +323,21 @@
 
         auto_mouse {
             bindings = <
-&trans  &trans  &trans  &trans  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &shift_rclk  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &shift_rclk  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         mouse_fixed {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans           &trans            &trans       &trans                     &trans  &trans    &trans  &trans    &trans     &trans
+&trans  &none   &none            &none             &none        &none                      &trans  &trans    &trans  &trans    &trans     &trans
+&trans  &none   &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans
+&trans  &trans  &kp LC(PG_UP)    &kp LC(PG_DN)     &shift_rclk  &trans     &trans  &trans  &trans  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &trans
+&trans  &trans  &trans           &trans            &trans       &trans     &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans
             >;
         };
 
@@ -350,7 +361,7 @@
             >;
         };
 
-        scroll_fast {
+        scroll_xy {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -371,8 +382,6 @@
         };
     };
 }; /* ===== / ここまで ===== */
-
-
 /* === トラックボール入力リスナーへの割当（trackball_listener） === */
 /*
  * NOTE: torabo-tsuki LP トラックボール設定について
@@ -396,6 +405,7 @@
      *   - my_vert_scroll : Y をスクロールに変換
      *   - lock_cursor_x  : X を 0倍にしてカーソルの左右移動を殺す
      * -------------------------------------- */
+
     scroll_v {
         layers = <22>;
         input-processors = <
@@ -403,6 +413,7 @@
             &lock_cursor_x 0 1      /* X 移動を 0倍（カーソル左右ロック） */
             &zip_scroll_scaler 1 6  /* スクロール速度1/6 */
         >;
+
         process-next;
     };
 
@@ -412,6 +423,7 @@
      *   - zip_scroll_transform : 横スクロールの向きを反転
      *   - lock_cursor_y   : Y を 0倍にしてカーソルの上下移動を殺す
      * -------------------------------------- */
+
     scroll_h {
         layers = <23>;
         input-processors = <
@@ -420,6 +432,7 @@
             &lock_cursor_y 0 1                      /* Y 移動を 0倍（カーソル上下ロック） */
             &zip_scroll_scaler 1 12                 /* スクロール速度1/12 */
         >;
+
         process-next;
     };
 
@@ -430,6 +443,7 @@
      *   - lock_cursor_x  : 残った X 相対移動を 0 にして、左右へのカーソル移動を殺す
      *   - lock_cursor_y  : 残った Y 相対移動を 0 にして、上下へのカーソル移動を殺す
      * -------------------------------------- */
+
     scroll_both {
         layers = <24>;
         input-processors = <
@@ -440,6 +454,7 @@
             &lock_cursor_y 0 1      /* Y の相対移動を 0倍（カーソル上下ロック） */
             &zip_scroll_scaler 1 12  /* スクロール速度1/12 */
         >;
+
         process-next;
     };
 
