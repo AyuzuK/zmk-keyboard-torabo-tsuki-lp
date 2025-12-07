@@ -60,6 +60,15 @@
 
     /* --- キーマップ --- */
 
+    macros {
+        shift_rclk: shift_rclk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT &mkp RCLK>;
+            label = "SHIFT_RCLK";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -73,7 +82,7 @@
             >;
         };
 
-        layer_1 {
+        layer_nav {
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
@@ -263,7 +272,17 @@
             >;
         };
 
-        layer_20 {
+        auto_mouse {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &shift_rclk  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        mouse_fixed {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -273,7 +292,7 @@
             >;
         };
 
-        layer_21 {
+        scroll_v_tate {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -283,7 +302,7 @@
             >;
         };
 
-        layer_22 {
+        scroll_h_yoko {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -293,7 +312,7 @@
             >;
         };
 
-        layer_23 {
+        scroll_fast {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -303,17 +322,7 @@
             >;
         };
 
-        layer_24 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer_25 {
+        cursor_slow {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -351,12 +360,14 @@
     };
 
     /* Layer23: 横スクロール（X→HWheel, 向き反転） */
+
     scroll_h {
         layers = <23>;
         input-processors = <
             &my_horiz_scroll
             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
         >;
+
         process-next;
     };
 
