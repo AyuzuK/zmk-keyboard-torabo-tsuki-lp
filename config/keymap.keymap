@@ -67,17 +67,16 @@
             #binding-cells = <0>;
 
             /* 必要なら待ち時間を調整 */
-            wait-ms = <0>;
-            tap-ms  = <0>;
 
+            wait-ms = <10>;
+            tap-ms = <20>;
             bindings =
-                /* Shift を押す */
-                <&macro_press   &kp LSHIFT>
-                /* 右クリックを「タップ」（押してすぐ離す） */
-                , <&macro_tap   &mkp MB2>
-                /* Shift を離す */
-                , <&macro_release &kp LSHIFT>
-                ;
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&mkp MB2>,
+                <&macro_release>,
+                <&kp LSHIFT>;
         };
     };
 
