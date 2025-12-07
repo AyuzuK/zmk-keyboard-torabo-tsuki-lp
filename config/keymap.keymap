@@ -12,9 +12,16 @@
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
 / {
-    /* --- 縦/横スクロール専用の Code Mapper を自作 --- */
+    /* ===============================
+     * トラックボール用 Input Processor 定義
+     *  - my_vert_scroll   : Y → 縦スクロール
+     *  - my_horiz_scroll  : X → 横スクロール
+     *  - lock_cursor_x    : カーソルXのみ 0倍（縦スクロール中に左右移動させない）
+     *  - lock_cursor_y    : カーソルYのみ 0倍（横スクロール中に上下移動させない）
+     * =============================== */
 
     input_processors {
+        /* --- 縦スクロール専用 Code Mapper（Y → WHEEL） --- */
         my_vert_scroll: my_vert_scroll {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
@@ -22,12 +29,35 @@
             map = <INPUT_REL_Y INPUT_REL_WHEEL>;
         };
 
+        /* --- 横スクロール専用 Code Mapper（X → HWHEEL） --- */
         my_horiz_scroll: my_horiz_scroll {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
             type = <INPUT_EV_REL>;
             map = <INPUT_REL_X INPUT_REL_HWHEEL>;
         };
+
+        /* --- カーソル X だけスケール 0倍にする（縦スクロール時に使用） --- */
+        lock_cursor_x: lock_cursor_x {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;   /* パラメータ 2つ（分子, 分母） */
+            type = <INPUT_EV_REL>;
+            /* X 方向の相対移動だけを対象 */
+            codes = <INPUT_REL_X>;
+            track-remainders;
+        };
+
+        /* --- カーソル Y だけスケール 0倍にする（横スクロール時に使用） --- */
+        lock_cursor_y: lock_cursor_y {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;   /* パラメータ 2つ（分子, 分母） */
+            type = <INPUT_EV_REL>;
+            /* Y 方向の相対移動だけを対象 */
+            codes = <INPUT_REL_Y>;
+            track-remainders;
+        };
+    };
+
 
         /* しきい値・除外キーを調整したくなった時のためのテンプレ（現時点では未使用） */
 
@@ -346,6 +376,7 @@
         };
     };
 }; /* ===== / ここまで ===== */
+
 /* === トラックボール入力リスナーへの割当（この機種は trackball_listener） === */
 /*
  * NOTE: torabo-tsuki LP トラックボール設定について
@@ -356,6 +387,7 @@
  *    すべてこの keymap.keymap で調整する方針とする。
  */
 
+
 &trackball_listener {
     /* ★向き補正（公式相当）＋ポインタ入力時に自動マウスLayer20 を一時有効にする */
 
@@ -364,23 +396,33 @@
         &zip_temp_layer 20 1500
     >;
 
-    /* Layer22: 縦スクロール（Y→Wheel） */
-
+    /* --------------------------------------
+     * Layer22: 縦スクロール（Y → Wheel）
+     *   - my_vert_scroll : Y をスクロールに変換
+     *   - lock_cursor_x  : X を 0倍にしてカーソルの左右移動を殺す
+     * -------------------------------------- */
     scroll_v {
         layers = <22>;
-        input-processors = <&my_vert_scroll>;
+        input-processors = <
+            &my_vert_scroll         /* Y → WHEEL */
+            &lock_cursor_x 0 1      /* X 移動を 0倍（カーソル左右ロック） */
+        >;
         process-next;
     };
 
-    /* Layer23: 横スクロール（X→HWheel, 向き反転） */
-
+    /* --------------------------------------
+     * Layer23: 横スクロール（X → HWheel, 向き反転）
+     *   - my_horiz_scroll : X を横スクロールに変換
+     *   - zip_scroll_transform : 横スクロールの向きを反転
+     *   - lock_cursor_y   : Y を 0倍にしてカーソルの上下移動を殺す
+     * -------------------------------------- */
     scroll_h {
         layers = <23>;
         input-processors = <
-            &my_horiz_scroll
-            &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+            &my_horiz_scroll                        /* X → HWHEEL */
+            &zip_scroll_transform INPUT_TRANSFORM_X_INVERT  /* 横スクロール方向反転 */
+            &lock_cursor_y 0 1                      /* Y 移動を 0倍（カーソル上下ロック） */
         >;
-
         process-next;
     };
 
