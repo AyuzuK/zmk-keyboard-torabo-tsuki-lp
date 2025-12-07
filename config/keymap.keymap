@@ -350,11 +350,13 @@
         process-next;
     };
 
-    /* Layer4: 横スクロール（X→HWheel） */
-
+    /* Layer23: 横スクロール（X→HWheel, 向き反転） */
     scroll_h {
         layers = <23>;
-        input-processors = <&my_horiz_scroll>;
+        input-processors = <
+            &my_horiz_scroll
+            &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+        >;
         process-next;
     };
 
