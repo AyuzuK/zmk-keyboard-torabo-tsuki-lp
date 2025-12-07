@@ -56,13 +56,9 @@
             codes = <INPUT_REL_Y>;
             track-remainders;
         };
-    };
-
 
         /* しきい値・除外キーを調整したくなった時のためのテンプレ（現時点では未使用） */
-
         /omit-if-no-ref/
-
         my_temp_layer: my_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
@@ -76,7 +72,6 @@
     };
 
     /* --- コンボ定義（安全形に整形） --- */
-
     combos {
         compatible = "zmk,combos";
 
@@ -377,7 +372,8 @@
     };
 }; /* ===== / ここまで ===== */
 
-/* === トラックボール入力リスナーへの割当（この機種は trackball_listener） === */
+
+/* === トラックボール入力リスナーへの割当（trackball_listener） === */
 /*
  * NOTE: torabo-tsuki LP トラックボール設定について
  *  - &trackball_listener をここで再定義しているため、
@@ -386,7 +382,6 @@
  *  - トラックボールの向き・スクロール・速度などは
  *    すべてこの keymap.keymap で調整する方針とする。
  */
-
 
 &trackball_listener {
     /* ★向き補正（公式相当）＋ポインタ入力時に自動マウスLayer20 を一時有効にする */
