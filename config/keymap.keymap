@@ -418,16 +418,27 @@
             &my_horiz_scroll                        /* X → HWHEEL */
             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT  /* 横スクロール方向反転 */
             &lock_cursor_y 0 1                      /* Y 移動を 0倍（カーソル上下ロック） */
-            &zip_scroll_scaler 1 12  /* スクロール速度1/12 */
+            &zip_scroll_scaler 1 12                 /* スクロール速度1/12 */
         >;
         process-next;
     };
 
-    /* 速度プリセット: Layer24 = スクロール高速 */
-
-    scrl_fast {
+    /* --------------------------------------
+     * Layer24: 縦＋横スクロール併用レイヤー
+     *   - my_vert_scroll : Y を縦スクロールに変換
+     *   - my_horiz_scroll: X を横スクロールに変換
+     *   - lock_cursor_x  : 残った X 相対移動を 0 にして、左右へのカーソル移動を殺す
+     *   - lock_cursor_y  : 残った Y 相対移動を 0 にして、上下へのカーソル移動を殺す
+     * -------------------------------------- */
+    scroll_both {
         layers = <24>;
-        input-processors = <&zip_scroll_scaler 2 1>;
+        input-processors = <
+            &my_vert_scroll         /* Y → WHEEL（縦スクロール） */
+            &my_horiz_scroll        /* X → HWHEEL（横スクロール） */
+            &lock_cursor_x 0 1      /* X の相対移動を 0倍（カーソル左右ロック） */
+            &lock_cursor_y 0 1      /* Y の相対移動を 0倍（カーソル上下ロック） */
+            &zip_scroll_scaler 1 12  /* スクロール速度1/12 */
+        >;
         process-next;
     };
 
