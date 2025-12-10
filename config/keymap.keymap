@@ -173,16 +173,19 @@
         };
     };
 
-    /* --- 単押・長押設定 --- */
+    /* --- 単押・長押設定：グローバル hold-tap 設定 --- */
 
-    /* Mod-Tap 全体の tapping-term を 250ms に変更 */
-    &mt {
-        tapping-term-ms = <250>;
-    };
+    behaviors {
+        hold_tap {
+            /* Mod-Tap / Layer-Tap (&mt / &lt) の共通設定 */
+            tapping-term-ms = <250>;
 
-    /* Layer-Tap (&lt) の tapping-term も同じく 250ms に */
-    &lt {
-        tapping-term-ms = <250>;
+            /* 必要に応じて追加
+             * quick-tap-ms = <0>;
+             * require-prior-idle-ms = <0>;
+             * flavor = "hold-preferred";
+             */
+        };
     };
 
     /* --- キーマップ --- */
