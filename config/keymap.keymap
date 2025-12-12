@@ -198,7 +198,7 @@
             bindings = <
 &none  &none             &none           &none     &none    &none                                                 &none          &none            &none          &none           &none                 &none
 &none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y          &kp U            &kp I          &kp O           &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 1 F  &kp G        &none               &none                &kp H          &lt 1 J          &kp K          &kp L           &mt RCTRL MINUS       &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 1 F  &kp G        &none               &none                &kp H          &lt 1 J          &kp K          &lt 6 L         &mt RCTRL MINUS       &none
 &none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &lt 24 C  &kp V    &lt 6 B      &kp TAB             &kp TAB              &kp N          &kp M            &kp COMMA      &kp DOT         &mt RIGHT_SHIFT FSLH  &none
 &none  &tog 21           &kp ESC         &none     &none    &lt 4 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 3 LC(F13)  &lt 5 BACKSPACE  &mt RCTRL DEL  &mt RGUI COLON  &mo 2                 &none
             >;
@@ -256,11 +256,11 @@
 
         bluetooth {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none         &none         &none         &none       &none
-&none  &none  &none  &none  &none  &none                &none  &none         &none         &none         &bt BT_CLR  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 3  &bt BT_SEL 4  &none         &none       &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none       &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none         &none         &none         &none       &none
+&none  &none           &none         &none         &none         &none                              &none           &none         &none         &none         &none  &none
+&none  &bt BT_CLR_ALL  &none         &none         &none         &bt BT_CLR                         &bt BT_CLR_ALL  &none         &none         &none         &none  &none
+&none  &none           &none         &none         &none         &none         &none         &none  &none           &bt BT_SEL 3  &bt BT_SEL 4  &none         &none  &none
+&none  &none           &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &none         &none         &none  &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
+&none  &none           &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &none  &none           &none         &none         &none         &none  &none
             >;
         };
 
