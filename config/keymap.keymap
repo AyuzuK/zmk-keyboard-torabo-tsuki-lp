@@ -163,10 +163,13 @@
                 <&macro_tap>,
                 <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A &kp BSLH &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4>,
                 <&macro_wait_time 20>,
+                <&macro_tap>,
                 <&kp TAB>,
                 <&macro_wait_time 20>,
+                <&macro_tap>,
                 <&kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4>,
                 <&macro_wait_time 20>,
+                <&macro_tap>,
                 <&kp ENTER>;
 
             label = "TOUTAI";
