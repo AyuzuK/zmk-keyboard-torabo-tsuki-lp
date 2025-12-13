@@ -1,6 +1,9 @@
 name: Build ZMK firmware (debug)
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,8 +26,8 @@ jobs:
           echo "---- grep include ----"
           grep -R --line-number "nrf52840_uf2_boot_mode.dtsi" -n . || true
 
-      - name: Build firmware
+      - name: Build firmware (left)
         run: |
-          west build -s zmk/app -b bmp_boost -S studio-rpc-usb-uart split-trackball -- \
+          west build -s zmk/app -b bmp_boost -S "studio-rpc-usb-uart split-trackball" -- \
             -DZMK_CONFIG=config \
             -DSHIELD=torabo_tsuki_lp_left
