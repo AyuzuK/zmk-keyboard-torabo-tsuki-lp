@@ -1,6 +1,30 @@
-name: Build ZMK firmware
+name: Build ZMK firmware (debug)
+
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up ZMK build environment
+        uses: zmkfirmware/zmk/.github/actions/setup@v1
+
+      - name: Debug: search UF2 dtsi in zephyr tree
+        run: |
+          echo "PWD=$(pwd)"
+          echo "---- find uf2 dtsi ----"
+          find zephyr -type f -iname "*uf2*.dtsi" || true
+          echo "---- find nrf52840 uf2 dtsi ----"
+          find zephyr -type f -iname "*nrf52840*uf2*.dtsi" || true
+          echo "---- grep include ----"
+          grep -R --line-number "nrf52840_uf2_boot_mode.dtsi" -n . || true
+
+      - name: Build firmware
+        run: |
+          west build -s zmk/app -b bmp_boost -S studio-rpc-usb-uart split-trackball -- \
+            -DZMK_CONFIG=config \
+            -DSHIELD=torabo_tsuki_lp_left
