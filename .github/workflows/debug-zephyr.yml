@@ -1,0 +1,31 @@
+name: Debug Zephyr UF2 dtsi (west)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ここで west 環境を作る（zmkの公式ビルドと同じ）
+      - name: Install west + deps
+        run: |
+          python3 -m pip install --user west
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: West init/update (ZMK)
+        run: |
+          west init -l config
+          west update
+
+      - name: Search UF2 dtsi in fetched zephyr
+        run: |
+          echo "---- find uf2 dtsi in fetched zephyr ----"
+          find zephyr -type f -iname "*uf2*.dtsi" || true
+          echo "---- find nrf52840 uf2 dtsi in fetched zephyr ----"
+          find zephyr -type f -iname "*nrf52840*uf2*.dtsi" || true
+          echo "---- locate include target ----"
+          find zephyr -type f -path "*common/nordic*" -iname "*boot*mode*.dtsi" || true
