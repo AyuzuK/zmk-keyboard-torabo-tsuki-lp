@@ -1,26 +1,6 @@
-name: Build ZMK firmware (debug)
-
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+name: Build ZMK firmware
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  # ① 検索だけ（ビルド環境不要）
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Debug:search UF2 dtsi in zephyr tree
-        run: |
-          echo "PWD=$(pwd)"
-          echo "---- find uf2 dtsi ----"
-          find zephyr -type f -iname "*uf2*.dtsi" || true
-          echo "---- find nrf52840 uf2 dtsi ----"
-          find zephyr -type f -iname "*nrf52840*uf2*.dtsi" || true
-          echo "---- grep include ----"
-          grep -R --line-number "nrf52840_uf2_boot_mode.dtsi" -n . || true
-
- 
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.2
