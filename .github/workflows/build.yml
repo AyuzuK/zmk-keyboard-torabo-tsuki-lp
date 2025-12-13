@@ -1,4 +1,4 @@
-sname: Build ZMK firmware (debug)
+name: Build ZMK firmware (debug)
 
 on:
   push:
