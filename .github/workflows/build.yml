@@ -1,4 +1,4 @@
-name: Build ZMK firmware (debug)
+sname: Build ZMK firmware (debug)
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up ZMK build environment
         uses: zmkfirmware/zmk/.github/actions/setup@v1
 
-      - name: Debug: search UF2 dtsi in zephyr tree
+      - name: Debug:search UF2 dtsi in zephyr tree
         run: |
           echo "PWD=$(pwd)"
           echo "---- find uf2 dtsi ----"
