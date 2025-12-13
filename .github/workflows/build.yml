@@ -6,14 +6,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  # ① 検索だけ（ビルド環境不要）
+  debug:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up ZMK build environment
-        uses: zmkfirmware/zmk/.github/actions/setup@main
 
       - name: Debug:search UF2 dtsi in zephyr tree
         run: |
@@ -25,8 +23,19 @@ jobs:
           echo "---- grep include ----"
           grep -R --line-number "nrf52840_uf2_boot_mode.dtsi" -n . || true
 
-      - name: Build firmware (left)
-        run: |
-          west build -s zmk/app -b bmp_boost -S "studio-rpc-usb-uart split-trackball" -- \
-            -DZMK_CONFIG=config \
-            -DSHIELD=torabo_tsuki_lp_left
+  # ② いつものビルド（元の方式に戻す）
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.2
+    with:
+      # あなたが元のbuild.ymlで指定していたものに合わせてください
+      # 例（必要なら後で調整します）:
+      # board: bmp_boost
+      # shield: torabo_tsuki_lp_left
+      # snippet: "studio-rpc-usb-uart split-trackball"
+      #
+      # ※このreusable workflowは、あなたの元の設定（build.yml）を参照していたはずなので、
+      #   とりあえず with: を空のままでも動くケースがあります。
+      #   もしエラーになったら、そのログを貼ってください。
+      #   （ここは“調査完了後に戻す”でもOK）
+      # ← いったん空でもOK
+      dummy: "1"
