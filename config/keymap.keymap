@@ -386,7 +386,7 @@
             bindings = <
 &trans  &trans  &trans         &trans        &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
 &trans  &none   &none          &none         &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
-&trans  &jp_at  &kp LS(POUND)  &kp LS(DLLR)  &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &kp LS(TILDE)  &trans
+&trans  &jp_at  &kp LS(POUND)  &kp LS(DLLR)  &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
 &trans  &none   &none          &none         &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &jp_l_namikakko  &jp_r_namikakko  &kp LS(QMARK)  &trans
 &trans  &none   &none          &trans        &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
             >;
