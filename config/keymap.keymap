@@ -10,10 +10,9 @@
 #include <dt-bindings/zmk/modifiers.h>
 
 /* HID usage(16進) → ZMKキーコード式 */
-#define JP_HID_KEY(x)   ZMK_HID_USAGE(HID_USAGE_KEY, (x))
-#define JP_KC_0x89      JP_HID_KEY(0x89)   /* 記事の 0x89（¥系） */
-#define JP_KC_0x87      JP_HID_KEY(0x87)   /* 記事の 0x87（_用） */
-
+/* 0x87/0x89 は HID の International 系 → ZMK の INTx に対応させる */
+#define JP_KC_0x89  INT6   /* 0x89 */
+#define JP_KC_0x87  INT4   /* 0x87 */
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
