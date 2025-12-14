@@ -110,13 +110,10 @@
       /* 必要なら待ち時間を調整 */
             wait-ms = <10>;
             tap-ms = <20>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&mkp MB2>,
-                <&macro_release>,
-                <&kp LSHIFT>;
+        bindings =
+            <&macro_press   &kp LSHIFT>,
+            <&macro_tap     &mkp MB2>,
+            <&macro_release &kp LSHIFT>;
         };
 
     /* ========= JP(OS=日本語配列)向け 記号マクロ ここから========= */
@@ -175,7 +172,7 @@
       #binding-cells = <0>;
       bindings =
         <&macro_press &kp LSHIFT>,
-        <&macro_tap &kp 0x89>,
+        <&macro_tap &kp JP_KC_0x89>,
         <&macro_release &kp LSHIFT>;
     };
 
@@ -200,7 +197,7 @@
     jp_backquote: jp_backquote { /* ` */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-    　bindings = <&macro_tap &kp LBRC>;
+      bindings = <&macro_tap &kp LBRC>;
     };
 
     jp_underscore: jp_underscore { /* _ */
