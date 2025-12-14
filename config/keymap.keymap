@@ -7,6 +7,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/modifiers.h>
+
+/* HID usage(16進) → ZMKキーコード式 */
+#define JP_HID_KEY(x)   ZMK_HID_USAGE(HID_USAGE_KEY, (x))
+#define JP_KC_0x89      JP_HID_KEY(0x89)   /* 記事の 0x89（¥系） */
+#define JP_KC_0x87      JP_HID_KEY(0x87)   /* 記事の 0x87（_用） */
+
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
@@ -147,8 +154,9 @@
     jp_en: jp_en { /* ¥ */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_tap &kp 0x89>;
+      bindings = <&macro_tap &kp JP_KC_0x89>;
     };
+
 
     jp_plus: jp_plus { /* + */
       compatible = "zmk,behavior-macro";
@@ -192,7 +200,7 @@
     jp_backquote: jp_backquote { /* ` */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_tap &kp LCBR>;
+      bindings = <&macro_tap &kp LBKT>;
     };
 
     jp_underscore: jp_underscore { /* _ */
@@ -200,9 +208,10 @@
       #binding-cells = <0>;
       bindings =
         <&macro_press &kp LSHIFT>,
-        <&macro_tap &kp 0x87>,
+        <&macro_tap &kp JP_KC_0x87>,
         <&macro_release &kp LSHIFT>;
     };
+
 
     jp_l_kakukakko: jp_l_kakukakko { /* [ */
       compatible = "zmk,behavior-macro";
