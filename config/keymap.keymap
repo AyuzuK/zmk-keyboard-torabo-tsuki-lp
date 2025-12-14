@@ -9,10 +9,10 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/modifiers.h>
 
-/* HID usage(16進) → ZMKキーコード式 */
-/* 0x87/0x89 は HID の International 系 → ZMK の INTx に対応させる */
-#define JP_KC_0x89  INT6   /* 0x89 */
-#define JP_KC_0x87  INT4   /* 0x87 */
+/* HID usage(16進) をそのまま keycode 値として扱う（dtc が確実に数値として読める形） */
+#define JP_KC_0x89  (0x89)  /* ¥ 系 */
+#define JP_KC_0x87  (0x87)  /* _ 用 */
+
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
