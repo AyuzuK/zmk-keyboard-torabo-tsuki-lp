@@ -200,7 +200,7 @@
     jp_backquote: jp_backquote { /* ` */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_tap &kp LBKT>;
+    　bindings = <&macro_tap &kp LBRC>;
     };
 
     jp_underscore: jp_underscore { /* _ */
