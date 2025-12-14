@@ -236,13 +236,13 @@
     jp_l_namikakko: jp_l_namikakko { /* { */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_tap &kp RCBR>;
+      bindings = <&macro_tap &kp RBRC>;
     };
 
     jp_r_namikakko: jp_r_namikakko { /* } */
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_tap &kp PIPE>;
+      bindings = <&macro_tap &kp BSLH>;
     };
 
     jp_kana: jp_kana { /* かな */
