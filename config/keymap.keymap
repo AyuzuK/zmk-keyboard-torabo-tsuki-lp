@@ -384,7 +384,7 @@
 &trans  &trans   &trans  &trans  &trans  &toutai                  &trans  &trans  &trans  &trans  &kp LC(LA(DEL))  &trans
 &trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
 &trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
-&trans  &tog 21  &trans  &trans  &trans  &trans   &trans  &tog 0  &trans  &trans  &trans  &trans  &trans           &trans
+&trans  &tog 21  &trans  &trans  &trans  &tog 4   &trans  &tog 0  &trans  &trans  &trans  &trans  &trans           &trans
             >;
         };
 
@@ -402,7 +402,7 @@
             bindings = <
 &trans  &trans     &trans        &trans  &trans  &trans                     &trans        &trans  &trans   &trans     &trans     &trans
 &trans  &none      &kp F9        &kp F8  &kp F7  &kp F12                    &kp BSPC      &kp N7  &kp N8   &kp N9     &jp_plus   &trans
-&trans  &kp LCTRL  &kp F6        &kp F5  &kp F6  &kp F11  &trans   &trans   &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS  &trans
+&trans  &kp LCTRL  &kp F6        &kp F5  &kp F4  &kp F11  &trans   &trans   &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS  &trans
 &trans  &kp RSHFT  &kp LEFT_GUI  &kp F3  &kp F2  &kp F10  &kp TAB  &kp TAB  &jp_equal     &kp N1  &kp N2   &kp N3     &kp FSLH   &trans
 &trans  &none      &kp ESC       &trans  &trans  &trans   &none    &kp RET  &kp SPACE     &kp N0  &kp DOT  &jp_colon  &trans     &trans
             >;
@@ -410,11 +410,11 @@
 
         l_sc1-r_sc1+ar {
             bindings = <
-&trans  &trans        &trans   &trans  &trans  &trans                           &trans                   &trans     &trans    &trans     &trans         &trans
-&trans  &kp BSPC      &kp N7   &kp N8  &kp N9  &jp_plus                         &moji_small              &moji_big  &syuku    &orikae    &kp LS(LG(S))  &trans
-&trans  &jp_asterisk  &kp N4   &kp N5  &kp N6  &kp MINUS  &trans   &trans       &kp LC(V)                &kp LC(C)  &kp UP    &kp LC(S)  &kp LC(A)      &trans
-&trans  &kp FSLH      &kp N1   &kp N2  &kp N3  &jp_equal  &kp TAB  &kp LA(F11)  &kp LANG_ZENKAKUHANKAKU  &kp LEFT   &kp DOWN  &kp RIGHT  &trans         &trans
-&trans  &none         &kp DOT  &trans  &trans  &mo 7      &kp RET  &none        &trans                   &trans     &trans    &trans     &trans         &trans
+&none  &none      &none       &none  &none      &none                      &none              &none              &none              &none               &none                 &none
+&none  &kp ESC    &kp LA(UP)  &none  &none      &none                      &kp LC(LS(LA(V)))  &kp LC(LS(LA(L)))  &kp LC(LS(LA(S)))  &kp LC(LS(LA(W)))   &kp LS(LG(S))         &none
+&none  &kp LC(A)  &kp LC(S)   &none  &kp LC(F)  &none  &none    &none      &kp LC(V)          &kp LC(C)          &kp UP             &kp LC(LS(LA(UP)))  &kp LC(LS(LA(DOWN)))  &none
+&none  &kp LC(Z)  &none       &none  &none      &none  &kp TAB  &kp LC(X)  &kp LG(V)          &kp LEFT           &kp DOWN           &kp RIGHT           &none                 &none
+&none  &none      &none       &none  &none      &mo 8  &kp RET  &none      &trans             &none              &none              &none               &none                 &none
             >;
         };
 
@@ -428,23 +428,23 @@
             >;
         };
 
-        l_num-r_sc2 {
+        l_num-r_ {
             bindings = <
-&trans  &trans        &trans      &trans  &trans  &trans                        &trans  &trans         &trans  &trans             &trans  &trans
-&trans  &kp BSPC      &kp N7      &kp N8  &kp N9  &jp_plus                      &trans  &trans         &trans  &trans             &trans  &trans
-&trans  &jp_asterisk  &kp N4      &kp N5  &kp N6  &kp MINUS  &trans     &trans  &trans  &trans         &trans  &trans             &trans  &trans
-&trans  &kp SLASH     &kp N1      &kp N2  &kp N3  &jp_equal  &kp TAB    &trans  &trans  &kp LC(PG_UP)  &trans  &kp LC(PAGE_DOWN)  &trans  &trans
-&trans  &none         &kp PERIOD  &trans  &trans  &kp N0     &kp ENTER  &trans  &trans  &trans         &trans  &trans             &trans  &trans
+&trans  &trans        &trans      &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp BSPC      &kp N7      &kp N8  &kp N9  &jp_plus                      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &jp_asterisk  &kp N4      &kp N5  &kp N6  &kp MINUS  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp SLASH     &kp N1      &kp N2  &kp N3  &jp_equal  &kp TAB    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &none         &kp PERIOD  &trans  &trans  &kp N0     &kp ENTER  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-        layer_7 {
+        r_sc2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans             &trans         &trans             &trans             &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &kp LC(LS(LA(P)))  &trans         &trans             &kp LC(LS(LA(O)))  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(LA(F)))  &trans         &kp LC(LS(LA(K)))  &kp LC(LS(LA(L)))  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(LA(C)))  &kp LC(PG_UP)  &trans             &kp LC(PAGE_DOWN)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans         &trans             &trans             &trans  &trans
             >;
         };
 
@@ -574,7 +574,7 @@
 &trans  &none      &kp LA(UP)       &none             &bt BT_SEL 1  &bt BT_SEL 0                                  &none      &none      &none      &none      &none      &trans
 &trans  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK     &mkp RCLK     &trans          &trans          &kp RC(V)  &kp RC(C)  &kp RC(X)  &kp RC(S)  &kp RC(A)  &trans
 &trans  &kp LSHFT  &kp LC(PG_UP)    &kp LC(PG_DN)     &shift_rclk   &none         &kp TAB         &kp TAB         &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &trans
-&trans  &tog 0     &kp LGUI         &none             &none         &trans        &mt LALT ENTER  &mt RALT ENTER  &none      &none      &kp RCTRL  &kp RGUI   &trans     &trans
+&trans  &trans     &kp LGUI         &none             &none         &trans        &mt LALT ENTER  &mt RALT ENTER  &none      &none      &kp RCTRL  &kp RGUI   &trans     &trans
             >;
         };
 
