@@ -408,13 +408,13 @@
             >;
         };
 
-        l_num_sc+ar {
+        l_sc1-r_sc1+ar {
             bindings = <
-&trans  &trans        &trans   &trans  &trans  &trans                           &trans                   &trans     &trans     &trans     &trans         &trans
-&trans  &kp BSPC      &kp N7   &kp N8  &kp N9  &jp_plus                         &moji_small              &moji_big  &syuku     &orikae    &kp LS(LG(S))  &trans
-&trans  &jp_asterisk  &kp N4   &kp N5  &kp N6  &kp MINUS  &trans   &trans       &kp LC(V)                &kp LC(C)  &kp LC(X)  &kp LC(S)  &kp LC(A)      &trans
-&trans  &kp FSLH      &kp N1   &kp N2  &kp N3  &jp_equal  &kp TAB  &kp LA(F11)  &kp LANG_ZENKAKUHANKAKU  &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT      &trans
-&trans  &none         &kp DOT  &trans  &trans  &kp N0     &kp RET  &none        &none                    &trans     &none      &trans     &trans         &trans
+&trans  &trans        &trans   &trans  &trans  &trans                           &trans                   &trans     &trans    &trans     &trans         &trans
+&trans  &kp BSPC      &kp N7   &kp N8  &kp N9  &jp_plus                         &moji_small              &moji_big  &syuku    &orikae    &kp LS(LG(S))  &trans
+&trans  &jp_asterisk  &kp N4   &kp N5  &kp N6  &kp MINUS  &trans   &trans       &kp LC(V)                &kp LC(C)  &kp UP    &kp LC(S)  &kp LC(A)      &trans
+&trans  &kp FSLH      &kp N1   &kp N2  &kp N3  &jp_equal  &kp TAB  &kp LA(F11)  &kp LANG_ZENKAKUHANKAKU  &kp LEFT   &kp DOWN  &kp RIGHT  &trans         &trans
+&trans  &none         &kp DOT  &trans  &trans  &mo 7      &kp RET  &none        &trans                   &trans     &trans    &trans     &trans         &trans
             >;
         };
 
@@ -428,13 +428,13 @@
             >;
         };
 
-        l_num-r_ {
+        l_num-r_sc2 {
             bindings = <
-&trans  &trans        &trans      &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp BSPC      &kp N7      &kp N8  &kp N9  &jp_plus                      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &jp_asterisk  &kp N4      &kp N5  &kp N6  &kp MINUS  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp SLASH     &kp N1      &kp N2  &kp N3  &jp_equal  &kp TAB    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none         &kp PERIOD  &trans  &trans  &kp N0     &kp ENTER  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans        &trans      &trans  &trans  &trans                        &trans  &trans         &trans  &trans             &trans  &trans
+&trans  &kp BSPC      &kp N7      &kp N8  &kp N9  &jp_plus                      &trans  &trans         &trans  &trans             &trans  &trans
+&trans  &jp_asterisk  &kp N4      &kp N5  &kp N6  &kp MINUS  &trans     &trans  &trans  &trans         &trans  &trans             &trans  &trans
+&trans  &kp SLASH     &kp N1      &kp N2  &kp N3  &jp_equal  &kp TAB    &trans  &trans  &kp LC(PG_UP)  &trans  &kp LC(PAGE_DOWN)  &trans  &trans
+&trans  &none         &kp PERIOD  &trans  &trans  &kp N0     &kp ENTER  &trans  &trans  &trans         &trans  &trans             &trans  &trans
             >;
         };
 
