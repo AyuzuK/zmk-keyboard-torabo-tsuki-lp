@@ -120,165 +120,175 @@
                 <&kp LSHIFT>;
         };
 
-        /* ========= JP(OS=日本語配列)向け 記号マクロ ここから========= */
+  /* ========= JP(OS=日本語配列)向け 記号マクロ ここから========= */
 
-        jp_double: jp_double {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp AT>;
-        };
+      jp_double: jp_double { /* " */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp AT>;
+      };
 
-        jp_and: jp_and {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp CARET>;
-        };
+      jp_and: jp_and { /* & */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp CARET>;
+      };
 
-        jp_single: jp_single {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp AMPS>;
-        };
+      jp_single: jp_single { /* ' */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp AMPS>;
+      };
 
-        jp_equal: jp_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp UNDER>;
-        };
+      jp_equal: jp_equal { /* = */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp UNDER>;
+      };
 
-        jp_caret: jp_caret {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp EQUAL>;
-        };
+      jp_caret: jp_caret { /* ^ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp EQUAL>;
+      };
 
-        jp_en: jp_en {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp 0x89>;
-        };
+      jp_en: jp_en { /* ¥ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp JP_KC_0x89>;
+      };
 
-        jp_plus: jp_plus {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp COLON>;
-        };
 
-        jp_kara: jp_kara {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp PLUS>;
-        };
+      jp_plus: jp_plus { /* + */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp COLON>;
+      };
 
-        jp_pipe: jp_pipe {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&kp 0x89>,
-                <&macro_release>,
-                <&kp LSHIFT>;
-        };
+      jp_kara: jp_kara { /* ~ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp PLUS>;
+      };
 
-        jp_at: jp_at {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LBKT>;
-        };
+      jp_pipe: jp_pipe { /* | */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings =
+          <&macro_press &kp LSHIFT>,
+          <&macro_tap &kp JP_KC_0x89>,
+          <&macro_release &kp LSHIFT>;
+      };
 
-        jp_colon: jp_colon {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp SQT>;
-        };
+      jp_at: jp_at { /* @ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp LBKT>;
+      };
 
-        jp_asterisk: jp_asterisk {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp DQT>;
-        };
+      jp_colon: jp_colon { /* : */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp SQT>;
+      };
 
-        jp_backquote: jp_backquote {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LBRC>;
-        };
+      jp_asterisk: jp_asterisk { /* * */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp DQT>;
+      };
 
-        jp_underscore: jp_underscore {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&kp 0x87>,
-                <&macro_release>,
-                <&kp LSHIFT>;
-        };
+      jp_backquote: jp_backquote { /* ` */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp LBRC>;
+      };
 
-        jp_l_kakukakko: jp_l_kakukakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp RBKT>;
-        };
+      jp_underscore: jp_underscore { /* _ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings =
+          <&macro_press &kp LSHIFT>,
+          <&macro_tap &kp JP_KC_0x87>,
+          <&macro_release &kp LSHIFT>;
+      };
 
-        jp_r_kakukakko: jp_r_kakukakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp BSLH>;
-        };
+      jp_l_kakukakko: jp_l_kakukakko { /* [ */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp RBKT>;
+      };
 
-        jp_l_kakko: jp_l_kakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp STAR>;
-        };
+      jp_r_kakukakko: jp_r_kakukakko { /* ] */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp BSLH>;
+      };
 
-        jp_r_kakko: jp_r_kakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LPAR>;
-        };
+      jp_l-r_kakukakko: jp_l-r_kakukakko { /* [] */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp RBKT>,
+                   <&macro_tap &kp BSLH>;
+      };
 
-        jp_l_namikakko: jp_l_namikakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp RBRC>;
-        };
+      jp_l_kakko: jp_l_kakko { /* ( */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp STAR>;
+      };
 
-        jp_r_namikakko: jp_r_namikakko {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&kp BSLH>,
-                <&macro_release>,
-                <&kp LSHIFT>;
-        };
+      jp_r_kakko: jp_r_kakko { /* ) */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp LPAR>;
+      };
 
-        jp_kana: jp_kana {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LANG1>;
-        };
+      jp_l-r_kakko: jp_l-r_kakko { /* () */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp STAR>,
+                   <&macro_tap &kp LPAR>;
+      };
 
-        jp_eisu: jp_eisu {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LANG2>;
-        };
+      jp_l_namikakko: jp_l_namikakko { /* { */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp RBRC>;
+      };
 
-        jp_hanzen: jp_hanzen {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp GRAVE>;
-        };
+      jp_r_namikakko: jp_r_namikakko { /* } */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp BSLH>;
+      };
 
-        /* ========= JP(OS=日本語配列)向け 記号マクロ ここまで========= */
+      jp_l-r_namikakko: jp_l-r_namikakko { /* {} */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp RBRC>,
+                   <&macro_tap &kp BSLH>;
+      };
+
+      jp_kana: jp_kana { /* かな */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp LANG1>;
+      };
+
+      jp_eisu: jp_eisu { /* 英数 */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp LANG2>;
+      };
+
+      jp_hanzen: jp_hanzen { /* 半角/全角 */
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp GRAVE>;
+      };
+
+      /* ========= JP(OS=日本語配列)向け 記号マクロ ここまで========= */
 
         moji_big: moji_big {
             compatible = "zmk,behavior-macro";
