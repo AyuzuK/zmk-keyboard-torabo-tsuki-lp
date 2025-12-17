@@ -92,9 +92,9 @@
         compatible = "zmk,combos";
 
         combo_enter {
-            timeout-ms = <50>;
+            timeout-ms = <120>;
             key-positions = <28 29>;
-            layers = <1>;
+            /*layers = <1>; 一旦レイヤー指定を削除*/
             bindings = <&kp ENTER>;
         };
     };
