@@ -92,7 +92,7 @@
         compatible = "zmk,combos";
 
         combo_enter {
-            timeout-ms = <120>;
+            timeout-ms = <80>;
             key-positions = <28 29>;
 
             /*layers = <1>; 一旦レイヤー指定を削除*/
@@ -100,21 +100,22 @@
             bindings = <&kp ENTER>;
         };
 
-        comb_kakko {
+        combo_kakko {
             bindings = <&jp_lr_kakko>;
             key-positions = <21 20>;
-            timeout-ms = <120>;
+            timeout-ms = <80>;
         };
 
-        conbo_kakukakko {
+        combo_kakukakko {
             bindings = <&jp_lr_kakukakko>;
             key-positions = <34 35>;
-            timeout-ms = <120>;
+            timeout-ms = <80>;
         };
 
         como_namikakko {
             bindings = <&jp_lr_namikakko>;
             key-positions = <48 49>;
+            timeout-ms = <80>;
         };
     };
 
@@ -252,7 +253,10 @@
         jp_lr_kakukakko: jp_lr_kakukakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp RBKT &kp BSLH &kp LEFT>;
+            bindings = <&macro_tap>, <&kp F2 &kp RBKT &kp BSLH &kp LEFT>;
+
+            wait-ms = <20>;
+            tap-ms = <20>;
         };
 
         jp_l_kakko: jp_l_kakko {
@@ -270,7 +274,10 @@
         jp_lr_kakko: jp_lr_kakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp STAR &kp LPAR &kp LEFT>;
+            bindings = <&macro_tap>, <&kp STAR &kp LPAR &kp LEFT &kp &kp>;
+
+            wait-ms = <20>;
+            tap-ms = <20>;
         };
 
         jp_l_namikakko: jp_l_namikakko {
