@@ -146,12 +146,16 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp AT>;
+
+            label = "[ ", ]";
         };
 
         jp_and: jp_and {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp CARET>;
+
+            label = "[ & ]";
         };
 
         jp_single: jp_single {
