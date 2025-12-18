@@ -225,11 +225,10 @@
         bindings = <&macro_tap &kp BSLH>;
       };
 
-      jp_l-r_kakukakko: jp_l-r_kakukakko { /* [] */
+      jp_lr_kakukakko: jp_lr_kakukakko { /* [] */
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&macro_tap &kp RBKT>,
-                   <&macro_tap &kp BSLH>;
+        bindings = <&macro_tap &kp RBKT &kp BSLH &kp LEFT>;
       };
 
       jp_l_kakko: jp_l_kakko { /* ( */
@@ -244,11 +243,10 @@
         bindings = <&macro_tap &kp LPAR>;
       };
 
-      jp_l-r_kakko: jp_l-r_kakko { /* () */
+      jp_lr_kakko: jp_lr_kakko { /* () */
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&macro_tap &kp STAR>,
-                   <&macro_tap &kp LPAR>;
+        bindings = <&macro_tap &kp STAR &kp LPAR &kp LEFT>;
       };
 
       jp_l_namikakko: jp_l_namikakko { /* { */
@@ -263,11 +261,10 @@
         bindings = <&macro_tap &kp BSLH>;
       };
 
-      jp_l-r_namikakko: jp_l-r_namikakko { /* {} */
+      jp_lr_namikakko: jp_lr_namikakko { /* {} */
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&macro_tap &kp RBRC>,
-                   <&macro_tap &kp BSLH>;
+        bindings = <&macro_tap &kp RBRC &kp BSLH &kp LEFT>;
       };
 
       jp_kana: jp_kana { /* かな */
