@@ -147,7 +147,7 @@
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp AT>;
 
-            label = "[ ", ]";
+            label = "[ " ]";
         };
 
         jp_and: jp_and {
