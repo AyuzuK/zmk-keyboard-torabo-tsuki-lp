@@ -274,7 +274,7 @@
         jp_lr_kakko: jp_lr_kakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp STAR &kp LPAR &kp LEFT &kp &kp>;
+            bindings = <&macro_tap>, <&kp F2 &kp STAR &kp LPAR &kp LEFT>;
 
             wait-ms = <20>;
             tap-ms = <20>;
@@ -295,7 +295,7 @@
         jp_lr_namikakko: jp_lr_namikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp RBRC &kp BSLH &kp LEFT>;
+            bindings = <&macro_tap>, <&kp F2 &kp RBRC &kp BSLH &kp LEFT>;
         };
 
         jp_kana: jp_kana {
@@ -372,6 +372,18 @@
             tap-ms = <20>;
             bindings = <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A &jp_en &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
             label = "TOUTAI";
+        };
+
+        jp_lr_daisyoumari: jp_lr_daisyoumari {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp F2 &kp LS(COMMA) &kp LS(PERIOD) &kp LEFT>;
+
+            label = "JP_LR_DAISYOUMARI";
+            wait-ms = <20>;
+            tap-ms = <20>;
         };
     };
 
