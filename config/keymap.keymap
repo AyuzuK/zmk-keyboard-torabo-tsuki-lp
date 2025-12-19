@@ -677,11 +677,11 @@
  */
 
 &trackball_listener {
-    /* ★向き補正（公式相当）＋ポインタ入力時に自動マウスLayer20 を一時有効にする */
+    /* ★向き補正（公式相当）＋ポインタ入力時に自動マウスLayer1 を一時有効にする */
 
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-        &my_temp_layer 20 800
+        &my_temp_layer 1 800
     >;
 
     /* --------------------------------------
