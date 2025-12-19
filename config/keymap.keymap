@@ -427,11 +427,11 @@
 
         sub {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                   &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                   &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &kp F14  &trans  &trans  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans  &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans  &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &kp F14  &kp ESC  &trans  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
             >;
         };
 
