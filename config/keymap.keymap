@@ -94,9 +94,6 @@
         combo_enter {
             timeout-ms = <80>;
             key-positions = <28 29>;
-
-            /*layers = <1>; 一旦レイヤー指定を削除*/
-
             bindings = <&kp ENTER>;
         };
 
@@ -146,14 +143,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp AT>;
-            label = "[ \" ]";
         };
 
         jp_and: jp_and {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp CARET>;
-            label = "[ & ]";
         };
 
         jp_single: jp_single {
@@ -256,7 +251,6 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp F2 &kp RBKT &kp BSLH &kp LEFT>;
-
             wait-ms = <20>;
             tap-ms = <20>;
         };
@@ -277,7 +271,6 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp F2 &kp STAR &kp LPAR &kp LEFT>;
-
             wait-ms = <20>;
             tap-ms = <20>;
         };
