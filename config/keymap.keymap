@@ -496,7 +496,7 @@
 &none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U            &kp I          &kp O      &kp P                 &none
 &none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 2 F  &kp G        &none               &none                &kp H      &lt 2 J          &kp K          &lt 4 L    &mt RIGHT_GUI MINUS   &none
 &none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &lt 24 C  &kp V    &lt 4 B      &kp TAB             &kp TAB              &kp N      &kp M            &kp COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &lt 5 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 6 F13  &lt 7 BACKSPACE  &mt RCTRL DEL  &jp_colon  &mo 3                 &none
+&none  &tog 21           &kp ESC         &none     &none    &lt 5 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 7 F13  &lt 9 BACKSPACE  &mt RCTRL DEL  &jp_colon  &mo 3                 &none
             >;
         };
 
@@ -526,7 +526,7 @@
 &trans  &trans   &trans  &trans  &trans  &toutai                  &trans  &trans  &trans  &trans  &kp LC(LA(DEL))  &trans
 &trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
 &trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &mic    &trans  &trans  &trans           &trans
-&trans  &tog 21  &trans  &trans  &trans  &tog 5   &trans  &trans  &trans  &trans  &trans  &to 0   &trans           &trans
+&trans  &tog 21  &trans  &trans  &trans  &tog 6   &trans  &trans  &trans  &trans  &trans  &to 0   &trans           &trans
             >;
         };
 
@@ -550,26 +550,6 @@
             >;
         };
 
-        l_sc1-r_sc1+ar {
-            bindings = <
-&none  &none      &none                   &none  &none      &none                      &none               &none          &none       &none          &none            &none
-&none  &kp ESC    &xls_waku_kotei_toggle  &none  &none      &none                      &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
-&none  &kp LC(A)  &kp LC(S)               &none  &kp LC(F)  &none  &none    &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
-&none  &kp LC(Z)  &none                   &none  &none      &none  &kp TAB  &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
-&none  &none      &none                   &none  &none      &mo 9  &kp RET  &none      &trans              &none          &none       &none          &none            &none
-            >;
-        };
-
-        l_sym-r_sym {
-            bindings = <
-&trans  &trans  &trans           &trans           &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
-&trans  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
-&trans  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
-&trans  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &trans
-&trans  &none   &none            &trans           &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
-            >;
-        };
-
         lr_num {
             bindings = <
 &trans  &trans        &trans      &trans  &trans  &trans                             &trans        &trans  &trans        &trans     &trans     &trans
@@ -580,13 +560,33 @@
             >;
         };
 
+        l_sc1-r_sc1+ar {
+            bindings = <
+&none  &none      &none                   &none  &none      &none                      &none               &none          &none       &none          &none            &none
+&none  &kp ESC    &xls_waku_kotei_toggle  &none  &none      &none                      &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
+&none  &kp LC(A)  &kp LC(S)               &none  &kp LC(F)  &none  &none    &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
+&none  &kp LC(Z)  &none                   &none  &none      &none  &kp TAB  &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
+&none  &none      &none                   &none  &none      &mo 8  &kp RET  &none      &trans              &none          &none       &none          &none            &none
+            >;
+        };
+
         r_sc2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans             &trans         &trans             &trans             &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LC(LS(LA(P)))  &trans         &trans             &kp LC(LS(LA(O)))  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(LA(F)))  &trans         &kp LC(LS(LA(K)))  &kp LC(LS(LA(L)))  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(LA(C)))  &kp LC(PG_UP)  &trans             &kp LC(PAGE_DOWN)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans         &trans             &trans             &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans         &trans  &trans             &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &xls_zu_hari    &trans         &trans  &xls_obuj          &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans  &kp LC(LS(L))      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &xls_memo_hari  &kp LC(PG_UP)  &trans  &kp LC(PAGE_DOWN)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans  &trans             &trans  &trans
+            >;
+        };
+
+        l_sym-r_sym {
+            bindings = <
+&trans  &trans  &trans           &trans           &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
+&trans  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
+&trans  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
+&trans  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &trans
+&trans  &none   &none            &trans           &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
             >;
         };
 
