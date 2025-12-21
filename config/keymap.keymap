@@ -301,6 +301,7 @@
             bindings =
                 <&macro_tap>,
                 <&kp F2 &kp LS(COMMA) &kp LS(PERIOD) &kp LEFT>;
+
             wait-ms = <20>;
             tap-ms = <20>;
         };
@@ -459,6 +460,13 @@
             bindings = <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A &jp_en &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
             label = "TOUTAI";
         };
+
+        mic: mic {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5>;
+            label = "MIC";
+        };
     };
 
     /* --- 単押・長押設定：グローバル hold-tap 設定 --- */
@@ -504,11 +512,11 @@
 
         sub {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans  &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans  &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &kp F14  &kp ESC  &trans  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -517,7 +525,7 @@
 &trans  &trans   &trans  &trans  &trans  &trans                   &trans  &trans  &trans  &trans  &trans           &trans
 &trans  &trans   &trans  &trans  &trans  &toutai                  &trans  &trans  &trans  &trans  &kp LC(LA(DEL))  &trans
 &trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
-&trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
+&trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &mic    &trans  &trans  &trans           &trans
 &trans  &tog 21  &trans  &trans  &trans  &tog 5   &trans  &trans  &trans  &trans  &trans  &to 0   &trans           &trans
             >;
         };
@@ -544,11 +552,11 @@
 
         l_sc1-r_sc1+ar {
             bindings = <
-&none  &none      &none       &none  &none      &none                      &none              &none              &none              &none               &none                 &none
-&none  &kp ESC    &kp LA(UP)  &none  &none      &none                      &kp LC(LS(LA(V)))  &kp LC(LS(LA(L)))  &kp LC(LS(LA(S)))  &kp LC(LS(LA(W)))   &kp LS(LG(S))         &none
-&none  &kp LC(A)  &kp LC(S)   &none  &kp LC(F)  &none  &none    &none      &kp LC(V)          &kp LC(C)          &kp UP             &kp LC(LS(LA(UP)))  &kp LC(LS(LA(DOWN)))  &none
-&none  &kp LC(Z)  &none       &none  &none      &none  &kp TAB  &kp LC(X)  &kp LG(V)          &kp LEFT           &kp DOWN           &kp RIGHT           &none                 &none
-&none  &none      &none       &none  &none      &mo 9  &kp RET  &none      &trans             &none              &none              &none               &none                 &none
+&none  &none      &none                   &none  &none      &none                      &none               &none          &none       &none          &none            &none
+&none  &kp ESC    &xls_waku_kotei_toggle  &none  &none      &none                      &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
+&none  &kp LC(A)  &kp LC(S)               &none  &kp LC(F)  &none  &none    &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
+&none  &kp LC(Z)  &none                   &none  &none      &none  &kp TAB  &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
+&none  &none      &none                   &none  &none      &mo 9  &kp RET  &none      &trans              &none          &none       &none          &none            &none
             >;
         };
 
