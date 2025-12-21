@@ -502,11 +502,11 @@
 
         auto_mouse {
             bindings = <
-&trans  &trans  &trans  &trans  &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &shift_rclk  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans       &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans       &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans       &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mkp RCLK  &shift_rclk  &shift_rclk  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans       &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -712,21 +712,21 @@
 
         scroll_v_tate {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mo 23  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &none  &none          &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none  &none  &none          &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none  &none  &kp LS(LCTRL)  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none          &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none          &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
             >;
         };
 
         scroll_h_yoko {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &mo 22  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
             >;
         };
 
