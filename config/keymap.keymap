@@ -119,9 +119,8 @@
     /* --- マクロ --- */
 
     macros {
-
         /* ========= シフト右クリック ========= */
-    
+
         shift_rclk: shift_rclk {
             compatible = "zmk,behavior-macro";
             label = "SHIFT_RCLK";
@@ -373,87 +372,82 @@
         };
 
         /* Ctrl+Alt+Shift+F：書式のみ貼り付け（Excel側の独自関数に割当済み想定）dddd */
+
         xls_shoshiki_hari: xls_shoshiki_hari {
-        compatible = "zmk,behavior-macro";
-        label = "XLS_SHOSHIKI_HARI";
-        #binding-cells = <0>;
-        wait-ms = <10>;
-        tap-ms  = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-        , <&macro_press &kp LALT>
-        , <&macro_press &kp LSHIFT>
-        , <&macro_tap   &kp F>
-        , <&macro_release &kp LSHIFT>
-        , <&macro_release &kp LALT>
-        , <&macro_release &kp LCTRL>
-        ;
+            compatible = "zmk,behavior-macro";
+            label = "XLS_SHOSHIKI_HARI";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &kp LSHIFT>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp LSHIFT &kp LALT &kp LCTRL>;
         };
 
         /* Ctrl+Alt+Shift+C：コメント・メモのみ貼り付け（Excel側の独自関数に割当済み想定） */
+
         xls_memo_hari: xls_memo_hari {
-        compatible = "zmk,behavior-macro";
-        label = "XLSs_MEMO_HARI";
-        #binding-cells = <0>;
-        wait-ms = <10>;
-        tap-ms  = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-        , <&macro_press &kp LALT>
-        , <&macro_press &kp LSHIFT>
-        , <&macro_tap   &kp C>
-        , <&macro_release &kp LSHIFT>
-        , <&macro_release &kp LALT>
-        , <&macro_release &kp LCTRL>
-        ;
+            compatible = "zmk,behavior-macro";
+            label = "XLSs_MEMO_HARI";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &kp LSHIFT>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp LSHIFT &kp LALT &kp LCTRL>;
         };
 
         /* Ctrl+Alt+Shift+P：図として貼り付け（Excel側の独自関数に割当済み想定） */
+
         xls_zu_hari: xls_zu_hari {
-        compatible = "zmk,behavior-macro";
-        label = "XLS_ZU_HARI";
-        #binding-cells = <0>;
-        wait-ms = <10>;
-        tap-ms  = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-        , <&macro_press &kp LALT>
-        , <&macro_press &kp LSHIFT>
-        , <&macro_tap   &kp P>
-        , <&macro_release &kp LSHIFT>
-        , <&macro_release &kp LALT>
-        , <&macro_release &kp LCTRL>
-        ;
+            compatible = "zmk,behavior-macro";
+            label = "XLS_ZU_HARI";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &kp LSHIFT>,
+                <&macro_tap>,
+                <&kp P>,
+                <&macro_release>,
+                <&kp LSHIFT &kp LALT &kp LCTRL>;
         };
 
         /* オブジェクトの選択：Alt, H, F, D, O（Select Objects） */
-        xls_obuj: xls_obuj { 
-        compatible = "zmk,behavior-macro";
-        label = "xls_OBUJ";
-        #binding-cells = <0>;
-        wait-ms = <40>;
-        tap-ms  = <0>;
-        bindings =
-            <&macro_tap &kp LALT>, <&macro_tap &kp H>, <&macro_tap &kp F>
-        , <&macro_tap &kp D>, <&macro_tap &kp O>;
+
+        xls_obuj: xls_obuj {
+            compatible = "zmk,behavior-macro";
+            label = "xls_OBUJ";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <0>;
+            bindings = <&macro_tap>, <&kp LALT &kp H &kp F &kp D &kp O>;
         };
 
         /* Ctrl+Alt+Shift+B：ウィンドウ枠固定トグル（Excel側の独自関数に割当済み想定） */
+
         xls_waku_kotei_toggle: xls_waku_kotei_toggle {
-        compatible = "zmk,behavior-macro";
-        label = "XLS_WAKU_KOTEI_TOGGLE";
-        #binding-cells = <0>;
-        wait-ms = <10>;
-        tap-ms  = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-        , <&macro_press &kp LALT>
-        , <&macro_press &kp LSHIFT>
-        , <&macro_tap   &kp B>
-        , <&macro_release &kp LSHIFT>
-        , <&macro_release &kp LALT>
-        , <&macro_release &kp LCTRL>
-        ;
+            compatible = "zmk,behavior-macro";
+            label = "XLS_WAKU_KOTEI_TOGGLE";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &kp LSHIFT>,
+                <&macro_tap>,
+                <&kp B>,
+                <&macro_release>,
+                <&kp LSHIFT &kp LALT &kp LCTRL>;
         };
 
         /* ========= 個別sys用マクロ ========= */
