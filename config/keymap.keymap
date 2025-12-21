@@ -91,12 +91,6 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_enter {
-            timeout-ms = <80>;
-            key-positions = <28 29>;
-            bindings = <&kp ENTER>;
-        };
-
         combo_kakko {
             bindings = <&jp_lr_kakko>;
             key-positions = <21 20>;
@@ -109,10 +103,15 @@
             timeout-ms = <80>;
         };
 
-        como_namikakko {
-            bindings = <&jp_lr_namikakko>;
+        combo_daisyou {
+            bindings = <&jp_lr_dai_syou_nari>;
             key-positions = <48 49>;
             timeout-ms = <80>;
+        };
+
+        combo_namikakko {
+            bindings = <&jp_lr_namikakko>;
+            key-positions = <14 15>;
         };
     };
 
@@ -570,11 +569,11 @@
 
         l_sym-r_sym {
             bindings = <
-&trans  &trans  &trans         &trans        &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
-&trans  &none   &none          &none         &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
-&trans  &jp_at  &kp LS(POUND)  &kp LS(DLLR)  &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
-&trans  &none   &none          &none         &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &jp_l_namikakko  &jp_r_namikakko  &kp LS(QMARK)  &trans
-&trans  &none   &none          &trans        &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
+&trans  &trans  &trans           &trans           &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
+&trans  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
+&trans  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
+&trans  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &trans
+&trans  &none   &none            &trans           &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
             >;
         };
 
