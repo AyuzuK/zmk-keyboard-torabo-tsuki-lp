@@ -172,7 +172,7 @@
         jp_en: jp_en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp JP_KC_0x89>;
+            bindings = <&macro_tap &kp JP_KC_0x89>;
         };
 
         jp_plus: jp_plus {
