@@ -172,7 +172,7 @@
         jp_en: jp_en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp JP_KC_0x89>;
+            bindings = <&macro_tap>, <&kp JP_KC_0x89>;
         };
 
         jp_plus: jp_plus {
@@ -459,8 +459,10 @@
             tap-ms = <20>;
             bindings =
                 <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A>,
-                <&macro_tap>,
-                <&jp_en &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
+                <&macro_press>,
+                <&jp_en>,
+                <&macro_release>,
+                <&kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
 
             label = "TOUTAI";
         };
