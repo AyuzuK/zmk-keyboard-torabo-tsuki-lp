@@ -458,10 +458,13 @@
             wait-ms = <20>;
             tap-ms = <20>;
             bindings =
+                <&macro_tap>,
                 <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A>,
                 <&macro_press>,
                 <&jp_en>,
                 <&macro_release>,
+                <&jp_en>,
+                <&macro_tap>,
                 <&kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
 
             label = "TOUTAI";
