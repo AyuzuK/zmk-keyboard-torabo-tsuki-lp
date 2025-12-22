@@ -457,7 +457,11 @@
 
             wait-ms = <20>;
             tap-ms = <20>;
-            bindings = <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A &jp_en &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
+            bindings =
+                <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A>,
+                <&macro_tap>,
+                <&jp_en &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
+
             label = "TOUTAI";
         };
 
@@ -512,11 +516,11 @@
 
         sub {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &sys_reset  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
             >;
         };
 
