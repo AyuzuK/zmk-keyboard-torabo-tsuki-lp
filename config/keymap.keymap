@@ -502,11 +502,11 @@
 
         auto_mouse {
             bindings = <
-&trans  &trans  &trans     &trans       &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans       &trans       &trans                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans       &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mkp RCLK  &shift_rclk  &shift_rclk  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans       &trans       &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &mkp LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &shift_rclk  &mkp RCLK  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
