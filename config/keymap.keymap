@@ -306,7 +306,7 @@
                 <&macro_tap>,
                 <&kp BSLH>,
                 <&macro_release>,
-                <&kp LSHIFT>;
+                <&kp LSHIFT>,
                 <&macro_tap>,
                 <&kp LEFT>;
         };
