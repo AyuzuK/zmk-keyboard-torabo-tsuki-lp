@@ -286,13 +286,29 @@
         jp_r_namikakko: jp_r_namikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp BSLH>;
+            bindings = 
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp BSLH>,
+                <&macro_release>,
+                <&kp LSHIFT>;
         };
 
         jp_lr_namikakko: jp_lr_namikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp F2 &kp RBRC &kp BSLH &kp LEFT>;
+            bindings = 
+                <&macro_tap>,
+                <&kp F2 &kp RBRC>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp BSLH>,
+                <&macro_release>,
+                <&kp LSHIFT>;
+                <&macro_tap>,
+                <&kp LEFT>;
         };
 
         jp_lr_dai_syou_nari: jp_lr_dai_syou_nari {
