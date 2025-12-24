@@ -789,7 +789,7 @@
         input-processors = <
             &my_vert_scroll         /* Y → WHEEL */
             &lock_cursor_x 0 1      /* X 移動を 0倍（カーソル左右ロック） */
-            &zip_scroll_scaler 1 6  /* スクロール速度1/6 */
+            &zip_scroll_scaler 1 12  /* スクロール速度1/12 */
         >;
 
         process-next;
@@ -808,7 +808,7 @@
             &my_horiz_scroll                        /* X → HWHEEL */
             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT  /* 横スクロール方向反転 */
             &lock_cursor_y 0 1                      /* Y 移動を 0倍（カーソル上下ロック） */
-            &zip_scroll_scaler 1 12                 /* スクロール速度1/12 */
+            &zip_scroll_scaler 1 24                 /* スクロール速度1/24 */
         >;
 
         process-next;
@@ -830,7 +830,7 @@
             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT  /* 横スクロール方向反転 */
             &lock_cursor_x 0 1      /* X の相対移動を 0倍（カーソル左右ロック） */
             &lock_cursor_y 0 1      /* Y の相対移動を 0倍（カーソル上下ロック） */
-            &zip_scroll_scaler 1 12  /* スクロール速度1/12 */
+            &zip_scroll_scaler 1 24  /* スクロール速度1/24 */
         >;
 
         process-next;
@@ -840,7 +840,7 @@
 
     speed_slow {
         layers = <25>;
-        input-processors = <&zip_xy_scaler 1 2>;
+        input-processors = <&zip_xy_scaler 1 4>;
         process-next;
     };
 };
