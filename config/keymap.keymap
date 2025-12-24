@@ -286,7 +286,7 @@
         jp_r_namikakko: jp_r_namikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LSHIFT>,
                 <&macro_tap>,
@@ -298,7 +298,7 @@
         jp_lr_namikakko: jp_lr_namikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_tap>,
                 <&kp F2 &kp RBRC>,
                 <&macro_press>,
@@ -519,8 +519,8 @@
             bindings = <
 &none  &none             &none           &none     &none    &none                                                 &none      &none            &none          &none      &none                 &none
 &none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U            &kp I          &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 2 F  &kp G        &none               &none                &kp H      &lt 2 J          &kp K          &lt 4 L    &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &lt 24 C  &kp V    &lt 4 B      &kp TAB             &kp TAB              &kp N      &kp M            &kp COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 2 F  &kp G        &none               &none                &lt 25 H   &lt 2 J          &lt 24 K       &lt 4 L    &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 4 B      &kp TAB             &kp TAB              &kp N      &kp M            &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
 &none  &tog 21           &kp ESC         &none     &none    &lt 5 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 7 F13  &lt 9 BACKSPACE  &mt RCTRL DEL  &jp_colon  &mo 3                 &none
             >;
         };
@@ -774,6 +774,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
+
         scrl_fast {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -870,10 +871,10 @@
     };
 
     /* 速度プリセット: Layer26 = スクロール高速 */
+
     scrl_fast {
         layers = <26>;
         input-processors = <&zip_scroll_scaler 12 1>;
         process-next;
     };
 };
-
