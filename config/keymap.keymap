@@ -476,10 +476,12 @@
             bindings =
                 <&macro_tap>,
                 <&kp U &kp N &kp I &kp D &kp E &kp F &kp N2 &kp C &kp H &kp I &kp B &kp A>,
+                <&macro_wait_time 20>,
                 <&macro_press>,
                 <&jp_en>,
                 <&macro_release>,
                 <&jp_en>,
+                <&macro_wait_time 20>,
                 <&macro_tap>,
                 <&kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp TAB &kp LS(C) &kp H &kp I &kp B &kp A &kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4 &kp ENTER>;
 
@@ -519,8 +521,8 @@
             bindings = <
 &none  &none             &none           &none     &none    &none                                                 &none      &none            &none          &none      &none                 &none
 &none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U            &kp I          &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 2 F  &kp G        &none               &none                &lt 25 H   &lt 2 J          &lt 24 K       &lt 4 L    &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 4 B      &kp TAB             &kp TAB              &kp N      &kp M            &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 2 F  &kp G        &none               &none                &lt 25 H   &lt 2 J          &lt 24 K       &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 4 B      &kp TAB             &kp TAB              &lt 4 N7   &kp M            &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
 &none  &tog 21           &kp ESC         &none     &none    &lt 5 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 7 F13  &lt 9 BACKSPACE  &mt RCTRL DEL  &jp_colon  &mo 3                 &none
             >;
         };
