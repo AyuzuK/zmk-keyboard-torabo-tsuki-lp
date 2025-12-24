@@ -758,6 +758,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
+        scrl_fast {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
     };
 }; /* ===== / ここまで ===== */
 /* === トラックボール入力リスナーへの割当（trackball_listener） === */
@@ -843,4 +852,12 @@
         input-processors = <&zip_xy_scaler 1 4>;
         process-next;
     };
+
+    /* 速度プリセット: Layer26 = スクロール高速 */
+    scrl_fast {
+        layers = <26>;
+        input-processors = <&zip_scroll_scaler 12 1>;
+        process-next;
+    };
 };
+
