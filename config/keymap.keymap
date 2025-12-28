@@ -15,9 +15,9 @@
 #define JP_KC_0x87  (0x87)  /* _ 用 */
 
 /* タップダンス用：行きたいレイヤー番号 */
+
 #define LAYER_LsRs 9
 #define LAYER_Rsc2 8
-
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
@@ -124,23 +124,25 @@
 
     behaviors {
         td_bs_LsRs: td_bs_LsRs {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
 
-        /* 1回目: Layer-Tap(tap=BS, hold=LAYER_LsRs(9))
+            /* 1回目: Layer-Tap(tap=BS, hold=LAYER_LsRs(9))
            2回目: BS(tapもholdもBS) */
-        bindings = <&lt LAYER_LsRs BSPC>, <&kp BSPC>;
+
+            bindings = <&lt LAYER_LsRs BSPC>, <&kp BSPC>;
         };
 
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
 
-        /* 1回目: &mt (tap=Enter, hold=Alt)
+            /* 1回目: &mt (tap=Enter, hold=Alt)
            2回目: &lt (tap=Enter, LAYER_Rsc2(9)) */
-        bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
+
+            bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
         };
     };
 
@@ -540,11 +542,11 @@
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                                 &none      &none            &none          &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U            &kp I          &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none               &none                &lt 25 H   &lt 3 J          &lt 24 K       &kp L      &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB             &kp TAB              &lt 5 N    &kp M            &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &mt LEFT_ALT ENTER  &mt RIGHT_ALT ENTER  &lt 7 F13  &lt 9 BACKSPACE  &mt RCTRL DEL  &jp_colon  &mo 4                 &none
+&none  &none             &none           &none     &none    &none                                               &none      &none        &none          &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                               &kp Y      &kp U        &kp I          &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none               &none              &lt 25 H   &lt 3 J      &lt 24 K       &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB             &kp TAB            &lt 5 N    &kp M        &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &mt LEFT_ALT ENTER  &td_ent_alt__Rsc2  &lt 7 F13  &td_bs_LsRs  &mt RCTRL DEL  &jp_colon  &mo 4                 &none
             >;
         };
 
