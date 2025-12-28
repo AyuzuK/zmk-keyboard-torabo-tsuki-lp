@@ -144,6 +144,19 @@
 
             bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
         };
+
+        td_del_ctrl: td_del_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+
+            /* 1回目: &mt (tap=DEL, hold=LCTRL)
+           2回目: DEL(tapもholdもDEL) */
+
+            bindings = <&mt LCTRL DEL>, <&kp DEL>;
+        };
+
+
     };
 
     /* --- マクロ --- */
