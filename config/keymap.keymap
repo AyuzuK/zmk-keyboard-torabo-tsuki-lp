@@ -155,8 +155,6 @@
 
             bindings = <&mt LCTRL DEL>, <&kp DEL>;
         };
-
-
     };
 
     /* --- マクロ --- */
@@ -555,11 +553,11 @@
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                               &none      &none        &none          &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                               &kp Y      &kp U        &kp I          &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none               &none              &lt 25 H   &lt 3 J      &lt 24 K       &kp L      &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB             &kp TAB            &lt 5 N    &kp M        &lt 26 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &mt LEFT_ALT ENTER  &td_ent_alt__Rsc2  &lt 7 F13  &td_bs_LsRs  &mt RCTRL DEL  &jp_colon  &mo 4                 &none
+&none  &none             &none           &none     &none    &none                                              &none      &none        &none         &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                              &kp Y      &kp U        &kp I         &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none              &none              &lt 25 H   &lt 3 J      &lt 24 K      &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB            &kp TAB            &lt 5 N    &kp M        &lt 26 COMMA  &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &td_bs_LsRs  &td_del_ctrl  &jp_colon  &mo 4                 &none
             >;
         };
 
