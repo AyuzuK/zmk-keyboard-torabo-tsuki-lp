@@ -131,7 +131,7 @@
             /* 1回目: Layer-Tap(tap=BS, hold=LAYER_LsRs(9))
            2回目: BS(tapもholdもBS) */
 
-            bindings = <&lt 12 BSPC>, <&kp BSPC>;
+            bindings = <&lt 9 BSPC>, <&kp BSPC>;
         };
 
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
@@ -140,7 +140,7 @@
             tapping-term-ms = <200>;
 
             /* 1回目: &mt (tap=Enter, hold=Alt)
-           2回目: &lt (tap=Enter, LAYER_Rsc2(9)) */
+           2回目: &lt (tap=Enter, LAYER_Rsc2(8)) */
 
             bindings = <&mt LALT ENTER>, <&lt 8 ENTER>;
         };
