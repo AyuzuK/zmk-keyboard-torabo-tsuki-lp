@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/outputs.h>
 
 /* HID usage(16進) をそのまま keycode 値として扱う（dtc が確実に数値として読める形） */
 
@@ -132,7 +131,7 @@
             /* 1回目: Layer-Tap(tap=BS, hold=LAYER_LsRs(9))
            2回目: BS(tapもholdもBS) */
 
-            bindings = <&lt 9 BSPC>, <&kp BSPC>;
+            bindings = <&lt LAYER_LsRs BSPC>, <&kp BSPC>;
         };
 
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
@@ -141,9 +140,9 @@
             tapping-term-ms = <200>;
 
             /* 1回目: &mt (tap=Enter, hold=Alt)
-           2回目: &lt (tap=Enter, LAYER_Rsc2(8)) */
+           2回目: &lt (tap=Enter, LAYER_Rsc2(9)) */
 
-            bindings = <&mt LALT ENTER>, <&lt 8 ENTER>;
+            bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
         };
 
         td_del_ctrl: td_del_ctrl {
@@ -523,7 +522,7 @@
             label = "TOUTAI";
         };
 
-        mic_pw: mic {
+        mic: mic {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5>;
@@ -547,88 +546,88 @@
         };
     };
 
-    /* --- キーマップ 　--- */
+    /* --- キーマップ --- */
 
     keymap {
         compatible = "zmk,keymap";
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                              &none      &none       &none          &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                              &kp Y      &kp U       &kp I          &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none              &none              &lt 25 H   &lt 3 J     &lt 26 K       &kp L      &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB            &kp TAB            &lt 5 N    &kp M       &lt 24 COMMA   &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &lt 9 BSPC  &mt LCTRL DEL  &jp_colon  &mo 4                 &none
+&none  &none             &none           &none     &none    &none                                              &none      &none        &none         &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                              &kp Y      &kp U        &kp I         &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none              &none              &lt 25 H   &lt 3 J      &lt 24 K      &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB            &kp TAB            &lt 5 N    &kp M        &lt 26 COMMA  &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &td_bs_LsRs  &td_del_ctrl  &jp_colon  &mo 4                 &none
             >;
         };
 
         lr_num {
             bindings = <
-&none  &none         &none       &none      &none   &none                              &none         &none   &none         &none      &none      &none
-&none  &kp BSPC      &kp N9      &kp N8     &kp N7  &jp_plus                           &kp BSPC      &kp N7  &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N6   &lt 22 N5  &kp N4  &kp MINUS  &none      &none        &jp_asterisk  &kp N4  &kp N5        &kp N6     &kp MINUS  &none
-&none  &kp SLASH     &kp N3      &kp N2     &kp N1  &jp_equal  &kp TAB    &kp LC(TAB)  &jp_equal     &kp N1  &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &none         &kp PERIOD  &none      &none   &kp N0     &kp ENTER  &kp ENTER    &kp SPACE     &kp N0  &kp PERIOD    &jp_colon  &trans     &none
+&trans  &trans        &trans      &trans     &trans  &trans                             &trans        &trans  &trans        &trans     &trans     &trans
+&trans  &kp BSPC      &kp N9      &kp N8     &kp N7  &jp_plus                           &kp BSPC      &kp N7  &kp N8        &kp N9     &jp_plus   &trans
+&trans  &jp_asterisk  &lt 23 N6   &lt 22 N5  &kp N4  &kp MINUS  &trans     &trans       &jp_asterisk  &kp N4  &kp N5        &kp N6     &kp MINUS  &trans
+&trans  &kp SLASH     &kp N3      &kp N2     &kp N1  &jp_equal  &kp TAB    &kp LC(TAB)  &jp_equal     &kp N1  &kp NUMBER_2  &kp N3     &kp SLASH  &trans
+&trans  &none         &kp PERIOD  &trans     &trans  &kp N0     &kp ENTER  &kp ENTER    &kp SPACE     &kp N0  &kp PERIOD    &jp_colon  &trans     &trans
             >;
         };
 
         auto_mouse {
             bindings = <
-&none  &none  &none        &none      &none      &none                &none  &none  &none  &none  &none   &none
-&none  &none  &none        &none      &none      &none                &none  &none  &none  &none  &none   &none
-&none  &none  &none        &none      &mkp LCLK  &none  &none  &none  &none  &none  &none  &none  &none   &none
-&none  &none  &shift_rclk  &mkp RCLK  &none      &none  &none  &none  &none  &none  &none  &none  &none   &none
-&none  &none  &none        &none      &none      &none  &none  &none  &none  &none  &none  &none  &trans  &none
+&trans  &trans  &trans       &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &mkp LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &shift_rclk  &mkp RCLK  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         sub {
             bindings = <
-&none  &none  &none  &none  &none  &none                            &none        &none     &none    &none  &none  &none
-&none  &none  &none  &none  &none  &none                            &none        &none     &none    &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none    &none          &none        &none     &none    &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none    &none          &none        &none     &none    &none  &none  &none
-&none  &none  &none  &none  &none  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp BSPC  &kp DEL  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                           &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans         &trans       &trans   &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_nav {
             bindings = <
-&none  &none    &none  &none  &none  &none                  &none  &none    &none  &none  &none            &none
-&none  &none    &none  &none  &none  &toutai                &none  &none    &none  &none  &kp LC(LA(DEL))  &none
-&none  &none    &none  &none  &none  &none    &none  &none  &none  &none    &none  &none  &none            &none
-&none  &none    &none  &none  &none  &none    &none  &none  &none  &mic_pw  &none  &none  &none            &none
-&none  &tog 21  &none  &none  &none  &tog 1   &none  &none  &none  &none    &none  &to 0  &none            &none
+&trans  &trans   &trans  &trans  &trans  &trans                   &trans  &trans  &trans  &trans  &trans           &trans
+&trans  &trans   &trans  &trans  &trans  &toutai                  &trans  &trans  &trans  &trans  &kp LC(LA(DEL))  &trans
+&trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans
+&trans  &trans   &trans  &trans  &trans  &trans   &trans  &trans  &trans  &mic    &trans  &trans  &trans           &trans
+&trans  &tog 21  &trans  &trans  &trans  &tog 1   &trans  &trans  &trans  &trans  &trans  &to 0   &trans           &trans
             >;
         };
 
         bluetooth {
             bindings = <
-&none  &none           &none         &none         &none         &none                     &none       &none         &none         &none         &none           &none
-&none  &bt BT_CLR_ALL  &out OUT_TOG  &out OUT_USB  &out OUT_BLE  &bt BT_CLR                &bt BT_CLR  &none         &none         &none         &bt BT_CLR_ALL  &none
-&none  &none           &none         &bt BT_SEL 4  &bt BT_SEL 3  &none       &none  &none  &none       &bt BT_SEL 3  &bt BT_SEL 4  &none         &none           &none
-&none  &none           &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &none       &none  &none  &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none           &none
-&none  &none           &none         &none         &none         &none       &none  &none  &none       &none         &none         &none         &none           &none
+&none  &none           &none         &none         &none         &none                              &none           &none         &none         &none         &none  &none
+&none  &bt BT_CLR_ALL  &none         &none         &none         &bt BT_CLR                         &bt BT_CLR_ALL  &none         &none         &none         &none  &none
+&none  &none           &none         &none         &none         &none         &none         &none  &none           &bt BT_SEL 3  &bt BT_SEL 4  &none         &none  &none
+&none  &none           &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &none         &none         &none  &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
+&none  &none           &none         &none         &none         &bt BT_SEL 0  &bt BT_SEL 1  &none  &none           &none         &none         &none         &none  &none
             >;
         };
 
         l_f-r_num {
             bindings = <
-&none  &none      &none         &none   &none   &none                      &none         &none   &none    &none      &none      &none
-&none  &none      &kp F9        &kp F8  &kp F7  &kp F12                    &kp BSPC      &kp N7  &kp N8   &kp N9     &jp_plus   &none
-&none  &kp LCTRL  &kp F6        &kp F5  &kp F4  &kp F11  &none    &none    &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS  &none
-&none  &kp RSHFT  &kp LEFT_GUI  &kp F3  &kp F2  &kp F10  &kp TAB  &kp TAB  &jp_equal     &kp N1  &kp N2   &kp N3     &kp FSLH   &none
-&none  &none      &kp ESC       &none   &none   &none    &none    &kp RET  &kp SPACE     &kp N0  &kp DOT  &jp_colon  &trans     &none
+&trans  &trans     &trans        &trans  &trans  &trans                     &trans        &trans  &trans   &trans     &trans     &trans
+&trans  &none      &kp F9        &kp F8  &kp F7  &kp F12                    &kp BSPC      &kp N7  &kp N8   &kp N9     &jp_plus   &trans
+&trans  &kp LCTRL  &kp F6        &kp F5  &kp F4  &kp F11  &trans   &trans   &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS  &trans
+&trans  &kp RSHFT  &kp LEFT_GUI  &kp F3  &kp F2  &kp F10  &kp TAB  &kp TAB  &jp_equal     &kp N1  &kp N2   &kp N3     &kp FSLH   &trans
+&trans  &none      &kp ESC       &trans  &trans  &trans   &none    &kp RET  &kp SPACE     &kp N0  &kp DOT  &jp_colon  &trans     &trans
             >;
         };
 
         l_sc1-r_sc1+ar {
             bindings = <
-&none  &none      &none                   &none  &none      &none                          &none               &none            &none       &none              &none             &none
-&none  &kp ESC    &xls_waku_kotei_toggle  &none  &none      &none                          &xls_shoshiki_hari  &kp LC(LS(V))    &xls_syuku  &xls_orikae        &kp LG(NUMBER_2)  &none
-&none  &kp LC(A)  &kp LC(S)               &none  &kp LC(F)  &none  &none        &none      &kp LC(V)           &kp LC(C)        &kp UP      &xls_moji_big      &xls_moji_small   &none
-&none  &kp LC(Z)  &none                   &none  &none      &none  &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT         &kp DOWN    &kp RIGHT          &none             &none
-&none  &none      &none                   &none  &none      &mo 8  &kp LA(RET)  &none      &trans              &kp LC(PAGE_UP)  &none       &kp LC(PAGE_DOWN)  &trans            &none
+&none  &none      &none                   &none  &none      &none                          &none               &none          &none       &none          &none            &none
+&none  &kp ESC    &xls_waku_kotei_toggle  &none  &none      &none                          &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
+&none  &kp LC(A)  &kp LC(S)               &none  &kp LC(F)  &none  &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
+&none  &kp LC(Z)  &none                   &none  &none      &none  &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
+&none  &none      &none                   &none  &none      &mo 8  &kp LA(RET)  &none      &trans              &none          &none       &none          &none            &none
             >;
         };
 
@@ -644,31 +643,41 @@
 
         l_sym-r_sym {
             bindings = <
-&none  &none   &none            &none            &none      &none                          &none          &none           &none            &none            &none          &none
-&none  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                          &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &none
-&none  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &none  &none  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &none
-&none  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none  &none  &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &none
-&none  &none   &none            &none            &none      &none            &none  &none  &none          &none           &none            &kp SEMICOLON    &trans         &none
+&trans  &trans  &trans           &trans           &trans     &trans                           &trans         &trans          &trans           &trans           &trans         &trans
+&trans  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
+&trans  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
+&trans  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &trans
+&trans  &none   &none            &trans           &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
+            >;
+        };
+
+        layer_9 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_10 {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         layer_11 {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -752,23 +761,13 @@
             >;
         };
 
-        layer_20 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
         mouse_fixed {
             bindings = <
-&none  &none      &none            &none             &none         &none                                         &none        &none  &none      &none     &none          &none
-&none  &none      &kp LA(UP)       &none             &bt BT_SEL 1  &bt BT_SEL 0                                  &none        &none  &none      &none     &none          &none
-&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK     &none         &none           &none           &none        &none  &none      &none     &kp RIGHT_GUI  &none
-&none  &kp LSHFT  &shift_rclk      &mkp RCLK         &shift_rclk   &mo 5         &kp TAB         &kp TAB         &none        &none  &none      &none     &kp RSHFT      &none
-&none  &tog 21    &kp ESC          &none             &none         &lt 6 SPACE   &mt LALT ENTER  &mt LALT ENTER  &lt 7 SPACE  &none  &kp RCTRL  &kp RGUI  &trans         &none
+&trans  &trans     &trans           &trans            &trans        &trans                                        &trans     &trans     &trans     &trans     &trans     &trans
+&trans  &none      &kp LA(UP)       &none             &bt BT_SEL 1  &bt BT_SEL 0                                  &none      &none      &none      &none      &none      &trans
+&trans  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK     &mkp RCLK     &trans          &trans          &kp RC(V)  &kp RC(C)  &kp RC(X)  &kp RC(S)  &kp RC(A)  &trans
+&trans  &kp LSHFT  &kp LC(PG_UP)    &kp LC(PG_DN)     &shift_rclk   &none         &kp TAB         &kp TAB         &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &trans
+&trans  &tog 21    &kp LGUI         &none             &none         &trans        &mt LALT ENTER  &mt RALT ENTER  &none      &none      &kp RCTRL  &kp RGUI   &trans     &trans
             >;
         };
 
@@ -794,31 +793,31 @@
 
         scroll_xy {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         cursor_slow {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         scrl_fast {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
