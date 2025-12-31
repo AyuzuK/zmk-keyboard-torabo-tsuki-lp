@@ -14,10 +14,6 @@
 #define JP_KC_0x89  (0x89)  /* ¥ 系 */
 #define JP_KC_0x87  (0x87)  /* _ 用 */
 
-/* タップダンス用：行きたいレイヤー番号 */
-
-#define LAYER_LsRs 9
-#define LAYER_Rsc2 8
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
@@ -120,18 +116,35 @@
         };
     };
 
-    /* --- タップダンス --- */
+    /* --- クイックタップ・タップダンス --- */
 
     behaviors {
-        td_bs_LsRs: td_bs_LsRs {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
+        qt_lt: qt_layer_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
 
-            /* 1回目: Layer-Tap(tap=BS, hold=LAYER_LsRs(9))
-           2回目: BS(tapもholdもBS) */
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
 
-            bindings = <&lt LAYER_LsRs BSPC>, <&kp BSPC>;
+        /* ★これが肝：タップ後すぐ再押下したら「必ずtap」扱いにする */
+        quick-tap-ms = <175>;
+
+        /* hold = &mo（レイヤー）、tap = &kp（キー） */
+        bindings = <&mo>, <&kp>;
+        };
+
+        qt_mt: qt_modtap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+
+        /* ★2回目（一定時間内の再押下）は必ず tap 扱いにする */
+        quick-tap-ms = <175>;
+
+        /* hold（前) と tap（後） の両方とも &kp を使う */
+        bindings = <&kp>, <&kp>;
         };
 
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
@@ -143,17 +156,6 @@
            2回目: &lt (tap=Enter, LAYER_Rsc2(9)) */
 
             bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
-        };
-
-        td_del_ctrl: td_del_ctrl {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-
-            /* 1回目: &mt (tap=DEL, hold=LCTRL)
-           2回目: DEL(tapもholdもDEL) */
-
-            bindings = <&mt LCTRL DEL>, <&kp DEL>;
         };
     };
 
@@ -553,11 +555,11 @@
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                              &none      &none        &none         &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                              &kp Y      &kp U        &kp I         &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G        &none              &none              &lt 25 H   &lt 3 J      &lt 26 K      &kp L      &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B      &kp TAB            &kp TAB            &lt 5 N    &kp M        &lt 24 COMMA  &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &td_bs_LsRs  &td_del_ctrl  &jp_colon  &mo 4                 &none
+&none  &none             &none           &none     &none    &none                                                 &none      &none          &none             &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U          &kp I             &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G           &none              &none              &lt 25 H   &lt 3 J        &lt 26 K          &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B         &kp TAB            &kp TAB            &lt 5 N    &kp M          &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none     &none    &qt_lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &qt_lt 9 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 4                 &none
             >;
         };
 
