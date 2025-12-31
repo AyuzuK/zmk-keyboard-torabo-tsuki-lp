@@ -657,11 +657,11 @@
 
         r_sc2 {
             bindings = <
-&trans  &trans  &trans              &trans  &trans  &trans                  &trans          &trans         &trans         &trans             &trans  &trans
-&trans  &trans  xls_waku_kotei_tog  &trans  &trans  &trans                  &xls_zu_hari    &trans         &trans         &xls_obuj          &trans  &trans
-&trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans          &trans         &xls_kaip_tog  &kp LC(LS(L))      &trans  &trans
-&trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &xls_memo_hari  &kp LC(PG_UP)  &trans         &kp LC(PAGE_DOWN)  &trans  &trans
-&trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans         &trans             &trans  &trans
+&trans  &trans  &trans               &trans  &trans  &trans                  &trans          &trans         &trans         &trans             &trans  &trans
+&trans  &trans  &xls_waku_kotei_tog  &trans  &trans  &trans                  &xls_zu_hari    &trans         &trans         &xls_obuj          &trans  &trans
+&trans  &trans  &trans               &trans  &trans  &trans  &trans  &trans  &trans          &trans         &xls_kaip_tog  &kp LC(LS(L))      &trans  &trans
+&trans  &trans  &trans               &trans  &trans  &trans  &trans  &trans  &xls_memo_hari  &kp LC(PG_UP)  &trans         &kp LC(PAGE_DOWN)  &trans  &trans
+&trans  &trans  &trans               &trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans         &trans             &trans  &trans
             >;
         };
 
