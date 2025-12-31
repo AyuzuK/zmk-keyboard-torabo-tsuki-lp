@@ -497,7 +497,7 @@
 
         /* Ctrl+Alt+Shift+L：ウィンドウ枠固定トグル（Excel側の独自関数に割当済み想定） */
 
-        xls_waku_kotei_toggle: xls_waku_kotei_toggle {
+        xls_waku_kotei_tog: xls_waku_kotei_toggle {
             compatible = "zmk,behavior-macro";
             label = "XLS_WAKU_KOTEI_TOGGLE";
             #binding-cells = <0>;
@@ -514,7 +514,7 @@
 
         /* Ctrl+Alt+Shift+B：改ページプレビュートグル（Excel側の独自関数に割当済み想定） */
 
-        xls_kaip_toggle: xls_waku_kotei_toggle {
+        xls_kaip_tog: xls_kaip_toggle {
             compatible = "zmk,behavior-macro";
             label = "XLS_WAKU_KOTEI_TOGGLE";
             #binding-cells = <0>;
