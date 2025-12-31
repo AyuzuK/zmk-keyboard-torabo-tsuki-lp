@@ -19,7 +19,6 @@
 #define LAYER_LsRs 9
 #define LAYER_Rsc2 8
 
-
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
 / {
@@ -125,31 +124,33 @@
 
     behaviors {
         qt_lt: qt_layer_tap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
 
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
+            /* ★これが肝：タップ後すぐ再押下したら「必ずtap」扱いにする */
 
-        /* ★これが肝：タップ後すぐ再押下したら「必ずtap」扱いにする */
-        quick-tap-ms = <175>;
+            quick-tap-ms = <175>;
 
-        /* hold = &mo（レイヤー）、tap = &kp（キー） */
-        bindings = <&mo>, <&kp>;
+            /* hold = &mo（レイヤー）、tap = &kp（キー） */
+
+            bindings = <&mo>, <&kp>;
         };
 
         qt_mt: qt_modtap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
 
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
+            /* ★2回目（一定時間内の再押下）は必ず tap 扱いにする */
 
-        /* ★2回目（一定時間内の再押下）は必ず tap 扱いにする */
-        quick-tap-ms = <175>;
+            quick-tap-ms = <175>;
 
-        /* hold（前) と tap（後） の両方とも &kp を使う */
-        bindings = <&kp>, <&kp>;
+            /* hold（前) と tap（後） の両方とも &kp を使う */
+
+            bindings = <&kp>, <&kp>;
         };
 
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
@@ -162,7 +163,7 @@
 
             bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
         };
-        };
+    };
 
     /* --- マクロ --- */
 
@@ -552,6 +553,30 @@
             bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5>;
             label = "MIC";
         };
+
+        sym_left: sym_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F13 &kp Y &kp M &kp F13 &kp ENTER>;
+        };
+
+        sym_up: sym_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F13 &kp Y &kp K &kp F13 &kp ENTER>;
+        };
+
+        sym_down: sym_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F13 &kp Y &kp COMMA &kp F13 &kp ENTER>;
+        };
+
+        sym_right: sym_rite {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F13 &kp Y &kp PERIOD &kp F13 &kp ENTER>;
+        };
     };
 
     /* --- 単押・長押設定：グローバル hold-tap 設定 --- */
@@ -671,11 +696,11 @@
 &trans  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                            &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &trans
 &trans  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &trans  &trans  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &trans
 &trans  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none   &none   &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &trans
-&trans  &none   &none            &trans           &trans     &none            &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
+&trans  &none   &none            &trans           &trans     &mo 10           &none   &none   &trans         &none           &none            &kp SEMICOLON    &trans         &trans
             >;
         };
 
-        layer_9 {
+        r_sym2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
