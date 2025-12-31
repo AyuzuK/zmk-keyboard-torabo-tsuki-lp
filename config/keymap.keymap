@@ -14,6 +14,11 @@
 #define JP_KC_0x89  (0x89)  /* ¥ 系 */
 #define JP_KC_0x87  (0x87)  /* _ 用 */
 
+/* タップダンス用：行きたいレイヤー番号 */
+
+#define LAYER_LsRs 9
+#define LAYER_Rsc2 8
+
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
@@ -157,7 +162,7 @@
 
             bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
         };
-    };
+        };
 
     /* --- マクロ --- */
 
