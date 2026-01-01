@@ -16,8 +16,9 @@
 
 /* タップダンス用：行きたいレイヤー番号 */
 
-#define LAYER_LsRs 9
 #define LAYER_Rsc2 8
+#define LAYER_LsRs 9
+#define LAYER_Rsym2 10
 
 /* ================== ここからDevicetreeオーバレイ本体 ================== */
 
@@ -127,11 +128,11 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
 
             /* ★これが肝：タップ後すぐ再押下したら「必ずtap」扱いにする */
 
-            quick-tap-ms = <175>;
+            quick-tap-ms = <200>;
 
             /* hold = &mo（レイヤー）、tap = &kp（キー） */
 
@@ -142,11 +143,11 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
 
             /* ★2回目（一定時間内の再押下）は必ず tap 扱いにする */
 
-            quick-tap-ms = <175>;
+            quick-tap-ms = <200>;
 
             /* hold（前) と tap（後） の両方とも &kp を使う */
 
@@ -156,12 +157,23 @@
         td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
 
             /* 1回目: &mt (tap=Enter, hold=Alt)
-           2回目: &lt (tap=Enter, LAYER_Rsc2(9)) */
+           2回目: &lt (tap=Enter, LAYER_Rsc2(8)) */
 
             bindings = <&mt LALT ENTER>, <&lt LAYER_Rsc2 ENTER>;
+        };
+
+        td_ent_alt__Rsym2: td_ent_alt__Rsym2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+
+            /* 1回目: &mt (tap=Enter, hold=Alt)
+           2回目: &lt (tap=Enter, LAYER_Rsym2(10)) */
+
+            bindings = <&mt LALT ENTER>, <&lt LAYER_Rsym2 ENTER>;
         };
     };
 
@@ -602,11 +614,11 @@
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                                 &none      &none          &none             &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                 &kp Y      &kp U          &kp I             &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G           &none              &none              &lt 25 H   &lt 3 J        &lt 26 K          &kp L      &mt RIGHT_GUI MINUS   &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B         &kp TAB            &kp TAB            &lt 5 N    &kp M          &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 21           &kp ESC         &none     &none    &qt_lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsc2  &lt 7 F13  &qt_lt 9 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 4                 &none
+&none  &none             &none           &none     &none    &none                                                  &none      &none          &none             &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                  &kp Y      &kp U          &kp I             &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 3 F  &kp G           &none              &none               &lt 25 H   &lt 3 J        &lt 26 K          &kp L      &mt RIGHT_GUI MINUS   &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 5 B         &kp TAB            &kp TAB             &lt 5 N    &kp M          &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &tog 21           &kp ESC         &none     &none    &qt_lt 6 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsym2  &lt 7 F13  &qt_lt 9 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 4                 &none
             >;
         };
 
@@ -672,11 +684,11 @@
 
         l_sc1-r_sc1+ar {
             bindings = <
-&none  &none      &none                &none  &none      &none                          &none               &none          &none       &none          &none            &none
-&none  &kp ESC    &xls_waku_kotei_tog  &none  &none      &none                          &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
-&none  &kp LC(A)  &kp LC(S)            &none  &kp LC(F)  &none  &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
-&none  &kp LC(Z)  &none                &none  &none      &none  &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
-&none  &none      &none                &none  &none      &mo 8  &kp LA(RET)  &none      &trans              &none          &none       &none          &none            &none
+&none  &none      &none                &none  &none      &none                                   &none               &none          &none       &none          &none            &none
+&none  &kp ESC    &xls_waku_kotei_tog  &none  &none      &none                                   &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
+&none  &kp LC(A)  &kp LC(S)            &none  &kp LC(F)  &none           &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
+&none  &kp LC(Z)  &none                &none  &none      &none           &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
+&none  &none      &none                &none  &none      &qt_lt 8 SPACE  &kp LA(RET)  &none      &trans              &none          &none       &none          &none            &none
             >;
         };
 
