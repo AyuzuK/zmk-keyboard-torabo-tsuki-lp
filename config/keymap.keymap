@@ -824,11 +824,11 @@
 
         mouse_fixed {
             bindings = <
-&trans  &trans     &trans           &trans            &trans        &trans                                        &trans     &trans     &trans     &trans     &trans     &trans
-&trans  &none      &kp LA(UP)       &none             &bt BT_SEL 1  &bt BT_SEL 0                                  &none      &none      &none      &none      &none      &trans
-&trans  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK     &mkp RCLK     &trans          &trans          &kp RC(V)  &kp RC(C)  &kp RC(X)  &kp RC(S)  &kp RC(A)  &trans
-&trans  &kp LSHFT  &kp LC(PG_UP)    &kp LC(PG_DN)     &shift_rclk   &none         &kp TAB         &kp TAB         &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &trans
-&trans  &tog 21    &kp LGUI         &none             &none         &trans        &mt LALT ENTER  &mt RALT ENTER  &none      &none      &kp RCTRL  &kp RGUI   &trans     &trans
+&none  &none      &none            &none             &none          &none                                          &none   &none  &none      &none  &none            &none
+&none  &none      &kp LA(UP)       &none             &kp LC(PG_UP)  &kp LC(PG_DN)                                  &none   &none  &none      &none  &none            &none
+&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &none          &none           &none           &mo 25  &none  &mo 26     &none  &kp RIGHT_GUI    &none
+&none  &kp LSHFT  &shift_rclk      &mkp RCLK         &none          &none          &kp TAB         &kp TAB         &none   &none  &mo 24     &none  &kp RIGHT_SHIFT  &none
+&none  &tog 21    &kp LGUI         &none             &none          &mo 6          &mt LALT ENTER  &mt RALT ENTER  &mo 7   &none  &kp RCTRL  &none  &none            &none
             >;
         };
 
