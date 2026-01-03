@@ -121,7 +121,7 @@
         };
     };
 
-    /* --- クイックタップ・タップダンス --- */
+    /* --- クイックタップ・タップダンスなど --- */
 
     behaviors {
         qt_lt: qt_layer_tap {
@@ -974,4 +974,12 @@
         input-processors = <&zip_scroll_scaler 12 1>;
         process-next;
     };
+};
+
+/* 既存の &mt (mod-tap) の設定を上書き */
+&mt {
+  tapping-term-ms = <250>;     /* 例：200→250ms に短縮 */
+  flavor = "balanced";         /* 好みで */
+  /* quick-tap-ms = <150>; */  /* 必要なときだけ（デフォは無効） */
+  /* require-prior-idle-ms = <125>; */ /* 高速入力時はTap固定にしたいなら */
 };
