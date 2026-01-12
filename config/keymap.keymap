@@ -732,13 +732,13 @@
             >;
         };
 
-        layer_10 {
+        AutodeskFusion {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mkp MCLK  &mo 22     &mkp LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &mkp RCLK  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -977,9 +977,10 @@
 };
 
 /* 既存の &mt (mod-tap) の設定を上書き */
+
 &mt {
-  tapping-term-ms = <250>;     /* 例：200→250ms に短縮 */
-  flavor = "balanced";         /* 好みで */
-  /* quick-tap-ms = <150>; */  /* 必要なときだけ（デフォは無効） */
-  /* require-prior-idle-ms = <125>; */ /* 高速入力時はTap固定にしたいなら */
+    tapping-term-ms = <250>;     /* 例：200→250ms に短縮 */
+    flavor = "balanced";         /* 好みで */
+    /* quick-tap-ms = <150>; */  /* 必要なときだけ（デフォは無効） */
+    /* require-prior-idle-ms = <125>; */ /* 高速入力時はTap固定にしたいなら */
 };
