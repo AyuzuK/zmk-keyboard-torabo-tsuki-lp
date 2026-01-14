@@ -562,7 +562,7 @@
         mic: mic {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5>;
+            bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5 &kp ENTER>;
             label = "MIC";
         };
 
@@ -624,11 +624,11 @@
 
         lr_num {
             bindings = <
-&none  &none         &none       &none      &none   &none                              &none         &none   &none         &none      &none      &none
-&none  &kp BSPC      &kp N9      &kp N8     &kp N7  &jp_plus                           &kp BSPC      &kp N7  &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N6   &lt 22 N5  &kp N4  &kp MINUS  &none      &none        &jp_asterisk  &kp N4  &kp N5        &kp N6     &kp MINUS  &none
-&none  &kp SLASH     &kp N3      &kp N2     &kp N1  &jp_equal  &kp TAB    &kp LC(TAB)  &jp_equal     &kp N1  &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &none         &kp PERIOD  &none      &none   &kp N0     &kp ENTER  &kp ENTER    &kp SPACE     &kp N0  &kp PERIOD    &jp_colon  &none      &none
+&none  &none         &none       &none      &none   &none                            &none         &none   &none         &none      &none      &none
+&none  &kp BSPC      &kp N9      &kp N8     &kp N7  &jp_plus                         &kp BSPC      &kp N7  &kp N8        &kp N9     &jp_plus   &none
+&none  &jp_asterisk  &lt 23 N6   &lt 22 N5  &kp N4  &kp MINUS  &none      &none      &jp_asterisk  &kp N4  &kp N5        &kp N6     &kp MINUS  &none
+&none  &kp SLASH     &kp N3      &kp N2     &kp N1  &jp_equal  &kp TAB    &kp TAB    &jp_equal     &kp N1  &kp NUMBER_2  &kp N3     &kp SLASH  &none
+&none  &none         &kp PERIOD  &none      &none   &kp N0     &kp ENTER  &kp ENTER  &kp SPACE     &kp N0  &kp PERIOD    &jp_colon  &mo 5      &none
             >;
         };
 
@@ -648,7 +648,7 @@
 &none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LSHFT  &shift_rclk      &mkp RCLK         &trans         &trans         &kp TAB         &kp TAB         &trans  &trans  &trans     &trans  &trans  &none
-&none  &tog 3     &kp LGUI         &trans            &trans         &mo 7          &mt LALT ENTER  &mt RALT ENTER  &mo 8   &none   &kp RCTRL  &trans  &trans  &none
+&none  &tog 3     &kp LGUI         &trans            &trans         &mo 7          &mt LALT ENTER  &mt RALT ENTER  &mo 8   &none   &kp RCTRL  &trans  &mo 5   &none
             >;
         };
 
