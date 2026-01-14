@@ -971,7 +971,7 @@
 
     scrl_fast {
         layers = <26>;
-        input-processors = <&zip_scroll_scaler 12 1>;
+        input-processors = <&zip_scroll_scaler 48 1>;
         process-next;
     };
 };
