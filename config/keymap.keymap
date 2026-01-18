@@ -684,11 +684,11 @@
 
         l_f-r_num {
             bindings = <
-&none  &none      &none         &none   &none   &none                      &none         &none   &none    &none      &none      &none
-&none  &none      &kp F9        &kp F8  &kp F7  &kp F12                    &kp BSPC      &kp N7  &kp N8   &kp N9     &jp_plus   &none
-&none  &kp LCTRL  &kp F6        &kp F5  &kp F4  &kp F11  &none    &none    &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS  &none
-&none  &kp RSHFT  &kp LEFT_GUI  &kp F3  &kp F2  &kp F10  &kp TAB  &kp TAB  &jp_equal     &kp N1  &kp N2   &kp N3     &kp FSLH   &none
-&none  &none      &kp ESC       &none   &none   &none    &none    &kp RET  &kp SPACE     &kp N0  &kp DOT  &jp_colon  &none      &none
+&none  &none       &none         &none   &none   &none                      &none         &none   &none    &none      &none       &none
+&none  &none       &kp F9        &kp F8  &kp F7  &kp F12                    &kp BSPC      &kp N7  &kp N8   &kp N9     &jp_plus    &none
+&none  &kp LCTRL   &kp F6        &kp F5  &kp F4  &kp F11  &none    &none    &jp_asterisk  &kp N4  &kp N5   &kp N6     &kp MINUS   &none
+&none  &kp RSHFT   &kp LEFT_GUI  &kp F3  &kp F2  &kp F10  &kp TAB  &kp TAB  &jp_equal     &kp N1  &kp N2   &kp N3     &kp FSLH    &none
+&none  &jp_hanzen  &kp ESC       &none   &none   &none    &none    &kp RET  &kp SPACE     &kp N0  &kp DOT  &jp_colon  &jp_hanzen  &none
             >;
         };
 
@@ -698,7 +698,7 @@
 &none  &kp ESC          &xls_waku_kotei_tog  &none  &none      &none                                   &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
 &none  &mt LCTRL LC(A)  &kp LC(S)            &none  &kp LC(F)  &jp_hanzen      &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
 &none  &mt LSHFT LC(Z)  &kp LEFT_GUI         &none  &none      &none           &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
-&none  &none            &none                &none  &none      &qt_lt 9 SPACE  &kp LA(RET)  &none      &trans              &none          &none       &none          &none            &none
+&none  &jp_hanzen       &none                &none  &none      &qt_lt 9 SPACE  &kp LA(RET)  &none      &trans              &none          &none       &none          &jp_hanzen       &none
             >;
         };
 
