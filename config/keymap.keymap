@@ -564,30 +564,49 @@
             #binding-cells = <0>;
             bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5 &kp ENTER>;
             label = "MIC";
+            wait-ms = <10>;
+            tap-ms = <10>;
         };
 
         sym_left: sym_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F13 &kp Y &kp M &kp F13 &kp ENTER>;
+            wait-ms = <10>;
+            tap-ms = <10>;
         };
 
         sym_up: sym_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F13 &kp Y &kp K &kp F13 &kp ENTER>;
+            wait-ms = <10>;
+            tap-ms = <10>;
         };
 
         sym_down: sym_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F13 &kp Y &kp COMMA &kp F13 &kp ENTER>;
+            wait-ms = <10>;
+            tap-ms = <10>;
         };
 
         sym_right: sym_rite {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F13 &kp Y &kp PERIOD &kp F13 &kp ENTER>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+        };
+
+        syokuin_No: syokuin_No {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N1 &kp N1 &kp N0 &kp N5 &kp N1 &kp N0 &kp N4>;
+            label = "SYOKUIN_NO";
+            wait-ms = <10>;
+            tap-ms = <10>;
         };
     };
 
@@ -664,11 +683,11 @@
 
         layer_nav {
             bindings = <
-&none  &none   &none  &none  &none  &none                  &none  &none  &none  &none  &none            &none
-&none  &none   &none  &none  &none  &toutai                &none  &none  &none  &none  &kp LC(LA(DEL))  &none
-&none  &none   &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none            &none
-&none  &none   &none  &none  &none  &none    &none  &none  &none  &mic   &none  &none  &none            &none
-&none  &tog 3  &none  &none  &none  &tog 1   &none  &none  &none  &none  &none  &to 0  &none            &none
+&none  &none   &none  &none  &none  &none                  &none  &none  &none        &none  &none            &none
+&none  &none   &none  &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
+&none  &none   &none  &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
+&none  &none   &none  &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
+&none  &tog 3  &none  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
             >;
         };
 
@@ -744,11 +763,11 @@
 
         micjet_default {
             bindings = <
-&trans  &trans  &trans   &trans  &trans  &trans                       &trans  &trans    &trans     &trans     &trans     &trans
-&trans  &kp Q   &kp W    &kp E   &kp R   &kp T                        &kp Y   &kp U     &kp I      &kp O      &kp P      &trans
-&trans  &kp A   &kp S    &kp D   &kp F   &kp G      &trans   &trans   &kp H   &kp J     &kp K      &kp L      &kp MINUS  &trans
-&trans  &kp Z   &kp X    &kp C   &kp V   &kp B      &kp TAB  &kp TAB  &kp N   &kp M     &kp COMMA  &kp DOT    &kp FSLH   &trans
-&trans  &trans  &kp ESC  &trans  &trans  &kp SPACE  &kp RET  &kp RET  &trans  &kp BSPC  &kp DEL    &kp COLON  &trans     &trans
+&trans  &trans  &trans   &trans  &trans  &trans                       &trans     &trans    &trans     &trans     &trans     &trans
+&trans  &kp Q   &kp W    &kp E   &kp R   &kp T                        &kp Y      &kp U     &kp I      &kp O      &kp P      &trans
+&trans  &kp A   &kp S    &kp D   &kp F   &kp G      &trans   &trans   &kp H      &kp J     &kp K      &kp L      &kp MINUS  &trans
+&trans  &kp Z   &kp X    &kp C   &kp V   &kp B      &kp TAB  &kp TAB  &kp N      &kp M     &kp COMMA  &kp DOT    &kp FSLH   &trans
+&trans  &trans  &kp ESC  &trans  &trans  &kp SPACE  &kp RET  &kp RET  &kp SPACE  &kp BSPC  &kp DEL    &kp COLON  &mo 5      &trans
             >;
         };
 
