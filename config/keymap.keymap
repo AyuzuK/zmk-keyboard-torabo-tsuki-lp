@@ -643,11 +643,11 @@
 
         lr_num {
             bindings = <
-&none  &none         &none       &none      &none   &none                            &none         &none   &none         &none      &none      &none
-&none  &kp BSPC      &kp N9      &kp N8     &kp N7  &jp_plus                         &kp BSPC      &kp N7  &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N6   &lt 22 N5  &kp N4  &kp MINUS  &none      &none      &jp_asterisk  &kp N4  &kp N5        &kp N6     &kp MINUS  &none
-&none  &kp SLASH     &kp N3      &kp N2     &kp N1  &jp_equal  &kp TAB    &kp TAB    &jp_equal     &kp N1  &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &none         &kp PERIOD  &none      &none   &kp N0     &kp ENTER  &kp ENTER  &kp SPACE     &kp N0  &kp PERIOD    &jp_colon  &mo 5      &none
+&none  &none         &none       &none      &none   &none                            &none         &none     &none         &none      &none      &none
+&none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                         &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
+&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &kp MINUS  &none      &none      &jp_asterisk  &kp N4    &kp N5        &kp N6     &kp MINUS  &none
+&none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal  &kp TAB    &kp TAB    &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
+&none  &none         &kp PERIOD  &none      &none   &lt 7 N0   &kp ENTER  &kp ENTER  &kp SPACE     &lt 8 N0  &kp PERIOD    &jp_colon  &mo 5      &none
             >;
         };
 
@@ -717,7 +717,7 @@
 &none  &kp ESC          &xls_waku_kotei_tog  &none  &none      &none                                   &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
 &none  &mt LCTRL LC(A)  &kp LC(S)            &none  &kp LC(F)  &none           &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
 &none  &mt LSHFT LC(Z)  &kp LEFT_GUI         &none  &none      &none           &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
-&none  &jp_hanzen       &none                &none  &none      &qt_lt 9 SPACE  &kp LA(RET)  &none      &trans              &none          &none       &none          &jp_hanzen       &none
+&none  &jp_hanzen       &none                &none  &none      &qt_lt 9 SPACE  &kp LA(RET)  &none      &trans              &kp ESC        &none       &none          &jp_hanzen       &none
             >;
         };
 
