@@ -180,7 +180,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        td_ent_alt__Rsc2: td_ent_alt__Rsc2 {
+        td_enal_Rsc2: td_enal_Rsc2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
@@ -191,7 +191,7 @@
             bindings = <&mt LALT ENTER>, <&lt 9 ENTER>;
         };
 
-        td_ent_alt__Rsym2: td_ent_alt__Rsym2 {
+        td_enal_Rsym2: td_enal_Rsym2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
@@ -200,6 +200,17 @@
            2回目: &lt (tap=Enter, LAYER_Rsym2(10)) */
 
             bindings = <&mt LALT ENTER>, <&lt 11 ENTER>;
+        };
+
+        td_kakko: td_kakko {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+
+            /* 1回目: &jp_l_kakko (tap=Enter, hold=Alt)
+           2回目: &jp_r_kakko (tap=Enter, LAYER_Rsym2(10)) */
+
+            bindings = <&jp_l_kakko>, <&jp_r_kakko>;
         };
     };
 
@@ -659,11 +670,11 @@
 
         default {
             bindings = <
-&none  &none             &none           &none     &none    &none                                                  &none      &none           &none             &none      &none                 &none
-&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                  &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 4 F  &kp G           &none              &none               &lt 25 H   &lt 4 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 6 B         &kp TAB            &kp TAB             &lt 6 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &kp ESC           &tog 3          &none     &none    &qt_lt 7 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsym2  &lt 8 F13  &qt_lt 10 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 5                 &none
+&none  &none             &none           &none     &none    &none                                          &none      &none           &none             &none      &none                 &none
+&none  &kp Q             &kp W           &kp E     &kp R    &kp T                                          &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 4 F  &kp G           &none          &none           &lt 25 H   &lt 4 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 6 B         &td_kakko      &td_kakko       &lt 6 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &kp ESC           &tog 3          &none     &none    &qt_lt 7 SPACE  &td_enal_Rsc2  &td_enal_Rsym2  &lt 8 F13  &qt_lt 10 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 5                 &none
             >;
         };
 
