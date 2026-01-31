@@ -693,7 +693,7 @@
 &none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LSHFT  &shift_rclk      &mkp RCLK         &trans         &trans         &kp TAB         &kp TAB         &trans  &trans  &trans     &trans  &trans  &none
-&none  &tog 3     &kp LGUI         &trans            &trans         &mo 7          &mt LALT ENTER  &mt RALT ENTER  &mo 8   &none   &kp RCTRL  &trans  &mo 5   &none
+&none  &kp ESC    &kp LGUI         &trans            &trans         &mo 7          &mt LALT ENTER  &mt RALT ENTER  &mo 8   &none   &kp RCTRL  &trans  &mo 5   &none
             >;
         };
 
@@ -709,11 +709,11 @@
 
         layer_nav {
             bindings = <
-&none  &none   &none  &none  &none  &none                  &none  &none  &none        &none  &none            &none
-&none  &none   &none  &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
-&none  &none   &none  &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
-&none  &none   &none  &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
-&none  &tog 3  &none  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
+&none  &none  &none   &none  &none  &none                  &none  &none  &none        &none  &none            &none
+&none  &none  &none   &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
+&none  &none  &none   &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
+&none  &none  &none   &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
+&none  &none  &tog 3  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
             >;
         };
 
