@@ -101,23 +101,49 @@
             bindings = <&jp_lr_kakko>;
             key-positions = <21 20>;
             timeout-ms = <80>;
+            layers = <0>;
         };
 
         combo_kakukakko {
             bindings = <&jp_lr_kakukakko>;
             key-positions = <34 35>;
             timeout-ms = <80>;
+            layers = <0>;
         };
 
         combo_daisyou {
             bindings = <&jp_lr_dai_syou_nari>;
             key-positions = <48 49>;
             timeout-ms = <80>;
+            layers = <0>;
         };
 
         combo_namikakko {
             bindings = <&jp_lr_namikakko>;
             key-positions = <14 15>;
+            layers = <0>;
+        };
+
+        combo_l_tab {
+            bindings = <&kp TAB>;
+            key-positions = <29 28>;
+            layers = <0>;
+        };
+
+        combo_r_tab {
+            bindings = <&kp TAB>;
+            key-positions = <32 33>;
+            layers = <0>;
+        };
+
+        combo_r {
+            bindings = <&mkp RCLK>;
+            key-positions = <33 34>;
+        };
+
+        combo_shift_rclk {
+            bindings = <&shift_rclk>;
+            key-positions = <47 48>;
         };
     };
 
@@ -637,7 +663,7 @@
 &none  &kp Q             &kp W           &kp E     &kp R    &kp T                                                  &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
 &none  &mt LCTRL A       &lt 23 S        &lt 22 D  &lt 4 F  &kp G           &none              &none               &lt 25 H   &lt 4 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
 &none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V    &lt 6 B         &kp TAB            &kp TAB             &lt 6 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &tog 3            &kp ESC         &none     &none    &qt_lt 7 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsym2  &lt 8 F13  &qt_lt 10 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 5                 &none
+&none  &kp ESC           &tog 3          &none     &none    &qt_lt 7 SPACE  &td_ent_alt__Rsc2  &td_ent_alt__Rsym2  &lt 8 F13  &qt_lt 10 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 5                 &none
             >;
         };
 
@@ -645,9 +671,9 @@
             bindings = <
 &none  &none         &none       &none      &none   &none                            &none         &none     &none         &none      &none      &none
 &none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                         &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &kp MINUS  &none      &none      &jp_asterisk  &kp N4    &kp N5        &kp N6     &kp MINUS  &none
+&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &kp MINUS  &none      &none      &jp_asterisk  &lt 4 N4  &kp N5        &kp N6     &kp MINUS  &none
 &none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal  &kp TAB    &kp TAB    &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &none         &kp PERIOD  &none      &none   &lt 7 N0   &kp ENTER  &kp ENTER  &kp SPACE     &lt 8 N0  &kp PERIOD    &jp_colon  &mo 5      &none
+&none  &kp ESC       &kp PERIOD  &none      &none   &lt 7 N0   &kp ENTER  &kp ENTER  &kp SPACE     &lt 8 N0  &kp PERIOD    &jp_colon  &mo 5      &none
             >;
         };
 
