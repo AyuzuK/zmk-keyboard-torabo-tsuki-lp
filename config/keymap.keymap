@@ -127,23 +127,23 @@
         combo_l_tab {
             bindings = <&kp TAB>;
             key-positions = <29 28>;
-            layers = <0>;
         };
 
         combo_r_tab {
             bindings = <&kp TAB>;
             key-positions = <32 33>;
-            layers = <0>;
         };
 
         combo_r {
             bindings = <&mkp RCLK>;
             key-positions = <33 34>;
+            layers = <2 3>;
         };
 
         combo_shift_rclk {
             bindings = <&shift_rclk>;
             key-positions = <47 48>;
+            layers = <2 3>;
         };
     };
 
