@@ -710,11 +710,11 @@
 
         sub {
             bindings = <
-&none  &none  &none  &none       &none  &none                            &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none       &none  &none                            &none        &none    &none       &none  &none  &none
-&none  &none  &none  &jp_hanzen  &none  &none    &none    &none          &none        &none    &jp_hanzen  &none  &none  &none
-&none  &none  &none  &none       &none  &none    &none    &none          &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none       &none  &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &none  &none  &none
+&none  &none  &none  &none  &none       &none                            &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none  &none       &none                            &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none  &jp_hanzen  &none    &none    &none          &none        &none    &jp_hanzen  &none  &none  &none
+&none  &none  &none  &none  &none       &none    &none    &none          &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none  &none       &kp F14  &kp ESC  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &none  &none  &none
             >;
         };
 
