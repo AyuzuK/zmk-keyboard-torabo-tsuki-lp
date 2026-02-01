@@ -684,7 +684,7 @@
 &none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                                    &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
 &none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 4 MINUS  &none          &none           &jp_asterisk  &lt 4 N4  &kp N5        &kp N6     &kp MINUS  &none
 &none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal    &kp TAB        &kp TAB         &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &kp ESC       &kp PERIOD  &none      &none   &lt 7 N0     &td_enal_Rsc2  &td_enal_Rsym2  &kp SPACE     &lt 8 N0  &kp PERIOD    &jp_colon  &mo 5      &none
+&none  &kp ESC       &kp PERIOD  &none      &none   &lt 7 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 8 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 5      &none
             >;
         };
 
