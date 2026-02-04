@@ -145,6 +145,12 @@
             key-positions = <47 48>;
             layers = <3 4>;
         };
+
+        combo_mclk {
+            bindings = <&mkp MCLK>;
+            key-positions = <19 20>;
+            layers = <3 4>;
+        };
     };
 
     /* --- クイックタップ・タップダンスなど --- */
