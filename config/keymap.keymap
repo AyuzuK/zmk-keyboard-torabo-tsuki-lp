@@ -134,16 +134,16 @@
             key-positions = <32 33>;
         };
 
-        combo_r {
+        combo_rclk {
             bindings = <&mkp RCLK>;
             key-positions = <33 34>;
-            layers = <2 3>;
+            layers = <3 4>;
         };
 
         combo_shift_rclk {
             bindings = <&shift_rclk>;
             key-positions = <47 48>;
-            layers = <2 3>;
+            layers = <3 4>;
         };
     };
 
@@ -188,7 +188,7 @@
             /* 1回目: &mt (tap=Enter, hold=Alt)
            2回目: &lt (tap=Enter, LAYER_Rsc2(8)) */
 
-            bindings = <&mt LALT ENTER>, <&lt 9 ENTER>;
+            bindings = <&mt LALT ENTER>, <&lt 10 ENTER>;
         };
 
         td_enal_Rsym2: td_enal_Rsym2 {
@@ -199,7 +199,7 @@
             /* 1回目: &mt (tap=Enter, hold=Alt)
            2回目: &lt (tap=Enter, LAYER_Rsym2(10)) */
 
-            bindings = <&mt LALT ENTER>, <&lt 11 ENTER>;
+            bindings = <&mt LALT ENTER>, <&lt 12 ENTER>;
         };
 
         td_kakko: td_kakko {
@@ -672,9 +672,9 @@
             bindings = <
 &none  &none             &none           &none     &none  &none                                          &none      &none           &none             &none      &none                 &none
 &none  &kp Q             &kp W           &kp E     &kp R  &kp T                                          &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &kp F  &lt 4 G         &none          &none           &lt 25 H   &lt 4 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
-&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V  &lt 6 B         &td_kakko      &td_kakko       &lt 6 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &kp ESC           &tog 3          &none     &none  &qt_lt 7 SPACE  &td_enal_Rsc2  &td_enal_Rsym2  &lt 8 F13  &qt_lt 10 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 5                 &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &kp F  &lt 5 G         &none          &none           &lt 25 H   &lt 5 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
+&none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V  &lt 7 B         &td_kakko      &td_kakko       &lt 7 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &kp ESC           &tog 4          &none     &none  &qt_lt 8 SPACE  &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 F13  &qt_lt 11 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 6                 &none
             >;
         };
 
@@ -682,9 +682,19 @@
             bindings = <
 &none  &none         &none       &none      &none   &none                                       &none         &none     &none         &none      &none      &none
 &none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                                    &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 4 MINUS  &none          &none           &jp_asterisk  &lt 4 N4  &kp N5        &kp N6     &kp MINUS  &none
+&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 5 MINUS  &none          &none           &jp_asterisk  &lt 5 N4  &kp N5        &kp N6     &kp MINUS  &none
 &none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal    &kp TAB        &kp TAB         &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &kp ESC       &kp PERIOD  &none      &none   &lt 7 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 8 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 5      &none
+&none  &kp ESC       &kp PERIOD  &none      &none   &lt 8 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 6      &none
+            >;
+        };
+
+        AutodeskFusion {
+            bindings = <
+&trans  &trans  &trans  &trans    &trans     &trans                  &trans  &trans     &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans    &trans     &trans                  &trans  &trans     &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &lt 22 D  &mkp LCLK  &trans  &trans  &trans  &trans  &mkp MCLK  &mt RIGHT_SHIFT K  &trans  &trans  &trans
+&trans  &trans  &trans  &trans    &trans     &trans  &trans  &trans  &trans  &trans     &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans    &trans     &trans  &trans  &trans  &trans  &trans     &trans             &trans  &mo 6   &trans
             >;
         };
 
@@ -704,7 +714,7 @@
 &none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans  &trans     &trans  &trans  &none
 &none  &kp LSHFT  &shift_rclk      &mkp RCLK         &trans         &trans         &kp TAB         &kp TAB         &trans  &trans  &trans     &trans  &trans  &none
-&none  &kp ESC    &kp LGUI         &trans            &trans         &mo 7          &mt LALT ENTER  &mt RALT ENTER  &mo 8   &none   &kp RCTRL  &trans  &mo 5   &none
+&none  &kp ESC    &kp LGUI         &trans            &trans         &mo 8          &mt LALT ENTER  &mt RALT ENTER  &mo 9   &none   &kp RCTRL  &trans  &mo 6   &none
             >;
         };
 
@@ -720,11 +730,11 @@
 
         layer_nav {
             bindings = <
-&none  &none  &none   &none  &none  &none                  &none  &none  &none        &none  &none            &none
-&none  &none  &none   &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
-&none  &none  &none   &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
-&none  &none  &none   &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
-&none  &none  &tog 3  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
+&none  &none   &none   &none  &none  &none                  &none  &none  &none        &none  &none            &none
+&none  &none   &none   &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
+&none  &tog 2  &none   &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
+&none  &none   &none   &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
+&none  &none   &tog 4  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
             >;
         };
 
@@ -750,11 +760,11 @@
 
         l_sc1-r_sc1+ar {
             bindings = <
-&none  &none            &none                &none  &none      &none                                   &none               &none          &none       &none          &none            &none
-&none  &kp ESC          &xls_waku_kotei_tog  &none  &none      &none                                   &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
-&none  &mt LCTRL LC(A)  &kp LC(S)            &none  &kp LC(F)  &none           &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
-&none  &mt LSHFT LC(Z)  &kp LEFT_GUI         &none  &none      &none           &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
-&none  &jp_hanzen       &none                &none  &none      &qt_lt 9 SPACE  &kp LA(RET)  &none      &trans              &kp ESC        &none       &none          &jp_hanzen       &none
+&none  &none            &none                &none  &none      &none                                    &none               &none          &none       &none          &none            &none
+&none  &kp ESC          &xls_waku_kotei_tog  &none  &none      &none                                    &xls_shoshiki_hari  &kp LC(LS(V))  &xls_syuku  &xls_orikae    &kp LS(LG(S))    &none
+&none  &mt LCTRL LC(A)  &kp LC(S)            &none  &kp LC(F)  &none            &none        &none      &kp LC(V)           &kp LC(C)      &kp UP      &xls_moji_big  &xls_moji_small  &none
+&none  &mt LSHFT LC(Z)  &kp LEFT_GUI         &none  &none      &none            &kp TAB      &kp LC(X)  &kp LG(V)           &kp LEFT       &kp DOWN    &kp RIGHT      &none            &none
+&none  &jp_hanzen       &none                &none  &none      &qt_lt 10 SPACE  &kp LA(RET)  &none      &trans              &kp ESC        &none       &none          &jp_hanzen       &none
             >;
         };
 
@@ -774,7 +784,7 @@
 &none  &none   &jp_l_namikakko  &jp_r_namikakko  &none      &none                          &jp_en         &jp_underscore  &jp_l_kakko      &jp_r_kakko      &jp_plus       &none
 &none  &jp_at  &kp LS(POUND)    &kp LS(DLLR)     &none      &none            &none  &none  &jp_single     &jp_double      &jp_l_kakukakko  &jp_r_kakukakko  &jp_kara       &none
 &none  &none   &none            &none            &jp_caret  &kp EXCLAMATION  &none  &none  &kp LS(PRCNT)  &jp_and         &kp LS(COMMA)    &kp LS(PERIOD)   &kp LS(QMARK)  &none
-&none  &none   &none            &none            &none      &mo 11           &none  &none  &none          &none           &none            &kp SEMICOLON    &none          &none
+&none  &none   &none            &none            &none      &mo 12           &none  &none  &none          &none           &none            &kp SEMICOLON    &none          &none
             >;
         };
 
@@ -788,23 +798,13 @@
             >;
         };
 
-        AutodeskFusion {
-            bindings = <
-&trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mkp MCLK  &mo 22     &mkp LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &mkp RCLK  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
         micjet_default {
             bindings = <
 &trans  &trans  &trans   &trans  &trans  &trans                       &trans     &trans    &trans     &trans     &trans     &trans
 &trans  &kp Q   &kp W    &kp E   &kp R   &kp T                        &kp Y      &kp U     &kp I      &kp O      &kp P      &trans
 &trans  &kp A   &kp S    &kp D   &kp F   &kp G      &trans   &trans   &kp H      &kp J     &kp K      &kp L      &kp MINUS  &trans
 &trans  &kp Z   &kp X    &kp C   &kp V   &kp B      &kp TAB  &kp TAB  &kp N      &kp M     &kp COMMA  &kp DOT    &kp FSLH   &trans
-&trans  &trans  &kp ESC  &trans  &trans  &kp SPACE  &kp RET  &kp RET  &kp SPACE  &kp BSPC  &kp DEL    &kp COLON  &mo 5      &trans
+&trans  &trans  &kp ESC  &trans  &trans  &kp SPACE  &kp RET  &kp RET  &kp SPACE  &kp BSPC  &kp DEL    &kp COLON  &mo 6      &trans
             >;
         };
 
