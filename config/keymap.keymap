@@ -137,19 +137,19 @@
         combo_rclk {
             bindings = <&mkp RCLK>;
             key-positions = <33 34>;
-            layers = <3 4>;
+            layers = <3 5>;
         };
 
         combo_shift_rclk {
             bindings = <&shift_rclk>;
             key-positions = <47 48>;
-            layers = <3 4>;
+            layers = <3 5>;
         };
 
         combo_mclk {
             bindings = <&mkp MCLK>;
             key-positions = <19 20>;
-            layers = <3 4>;
+            layers = <3 5>;
         };
     };
 
@@ -678,9 +678,9 @@
             bindings = <
 &none  &none             &none           &none     &none  &none                                          &none      &none           &none             &none      &none                 &none
 &none  &kp Q             &kp W           &kp E     &kp R  &kp T                                          &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
-&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &kp F  &lt 5 G         &none          &none           &lt 25 H   &lt 5 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
+&none  &mt LCTRL A       &lt 23 S        &lt 22 D  &kp F  &lt 6 G         &none          &none           &lt 25 H   &lt 6 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
 &none  &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &kp C     &kp V  &lt 7 B         &td_kakko      &td_kakko       &lt 7 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
-&none  &kp ESC           &tog 4          &none     &none  &qt_lt 8 SPACE  &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 F13  &qt_lt 11 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 6                 &none
+&none  &kp ESC           &tog 5          &none     &none  &qt_lt 8 SPACE  &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 F13  &qt_lt 11 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 6                 &none
             >;
         };
 
@@ -688,7 +688,7 @@
             bindings = <
 &none  &none         &none       &none      &none   &none                                       &none         &none     &none         &none      &none      &none
 &none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                                    &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 5 MINUS  &none          &none           &jp_asterisk  &lt 5 N4  &kp N5        &kp N6     &kp MINUS  &none
+&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 6 MINUS  &none          &none           &jp_asterisk  &lt 6 N4  &kp N5        &kp N6     &kp MINUS  &none
 &none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal    &kp TAB        &kp TAB         &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
 &none  &kp ESC       &kp PERIOD  &none      &none   &lt 8 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 6      &none
             >;
@@ -716,11 +716,11 @@
 
         mouse_fixed {
             bindings = <
-&none  &none      &none            &none             &none          &none                                          &none   &none   &none      &none   &none   &none
-&none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans  &trans     &trans  &trans  &none
-&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans  &trans     &trans  &trans  &none
-&none  &kp LSHFT  &shift_rclk      &mkp RCLK         &trans         &trans         &kp TAB         &kp TAB         &trans  &trans  &trans     &trans  &trans  &none
-&none  &kp ESC    &kp LGUI         &trans            &trans         &mo 8          &mt LALT ENTER  &mt RALT ENTER  &mo 9   &none   &kp RCTRL  &trans  &mo 6   &none
+&none  &none      &none            &none             &none          &none                                          &none   &none          &none          &none   &none   &none
+&none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans         &trans         &trans  &trans  &none
+&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans         &trans         &trans  &trans  &none
+&none  &kp LSHFT  &shift_rclk      &mkp RCLK         &trans         &trans         &kp TAB         &kp TAB         &trans  &trans         &trans         &trans  &trans  &none
+&none  &kp ESC    &kp LGUI         &trans            &trans         &mo 8          &mt LALT ENTER  &mt RALT ENTER  &mo 9   &kp BACKSPACE  &mt RCTRL DEL  &trans  &mo 6   &none
             >;
         };
 
@@ -740,7 +740,7 @@
 &none  &none   &none   &none  &none  &toutai                &none  &none  &none        &none  &kp LC(LA(DEL))  &none
 &none  &tog 2  &none   &none  &none  &none    &none  &none  &none  &none  &syokuin_No  &none  &none            &none
 &none  &none   &none   &none  &none  &none    &none  &none  &none  &mic   &none        &none  &none            &none
-&none  &none   &tog 4  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
+&none  &none   &tog 5  &none  &none  &tog 1   &none  &none  &none  &none  &none        &to 0  &none            &none
             >;
         };
 
