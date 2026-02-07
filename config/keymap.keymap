@@ -177,6 +177,14 @@
             layers = <3 4>;
         };
 
+        combo_shift_rclk2 {
+            bindings = <&shift_rclk>;
+            key-positions = <42 41>;
+            timeout-ms = <80>;
+            slow-release;
+            layers = <3 4>;
+        };
+        
         combo_mclk2 {
             bindings = <&mkp MCLK>;
             key-positions = <26 27>;
@@ -193,13 +201,6 @@
             layers = <3 4>;
         };
 
-        combo_shift_rclk2 {
-            bindings = <&shift_rclk>;
-            key-positions = <42 41>;
-            timeout-ms = <80>;
-            slow-release;
-            layers = <3 4>;
-        };
     };
 
     /* --- クイックタップ・タップダンスなど --- */
