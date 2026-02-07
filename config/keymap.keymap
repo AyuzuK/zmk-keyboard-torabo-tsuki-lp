@@ -155,17 +155,49 @@
 
         combo_mclk {
             bindings = <&mkp MCLK>;
-            key-positions = <19 20>;
+            key-positions = <34 35>;
             timeout-ms = <80>;
             slow-release;              /* ★重要：全キー離すまで保持 */
             layers = <3 4>;
         };
-        
+
         combo_sh_mclk {
             bindings = <&sh_mclk_hold>;
-            key-positions = <20 21>;   /* ←ここを自分のコンボ位置に */
+            key-positions = <48 49>;   /* ←ここを自分のコンボ位置に */
             timeout-ms = <80>;         /* 打鍵が速いなら 60〜90 あたりで調整 */
             slow-release;              /* ★重要：全キー離すまで保持 */
+            layers = <3 4>;
+        };
+
+        combo_rclk2 {
+            bindings = <&mkp RCLK>;
+            key-positions = <28 27>;
+            timeout-ms = <80>;
+            slow-release;
+            layers = <3 4>;
+        };
+
+        combo_mclk2 {
+            bindings = <&mkp MCLK>;
+            key-positions = <26 27>;
+            timeout-ms = <80>;
+            slow-release;
+            layers = <3 4>;
+        };
+
+        combo_sh_mclk2 {
+            bindings = <&sh_mclk_hold>;
+            key-positions = <40 41>;
+            timeout-ms = <80>;
+            slow-release;
+            layers = <3 4>;
+        };
+
+        combo_shift_rclk2 {
+            bindings = <&shift_rclk>;
+            key-positions = <42 41>;
+            timeout-ms = <80>;
+            slow-release;
             layers = <3 4>;
         };
     };
@@ -264,16 +296,19 @@
             #binding-cells = <0>;
 
             /* 速く確実に：押下/解放を即時にしたいので 0 に寄せる */
+
             wait-ms = <0>;
             tap-ms = <0>;
-
-            bindings
-                = <&macro_press   &kp LSHFT>
-                , <&macro_press   &mkp MCLK>
-                , <&macro_pause_for_release>
-                , <&macro_release &mkp MCLK>
-                , <&macro_release &kp LSHFT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_press>,
+                <&mkp MCLK>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mkp MCLK>,
+                <&macro_release>,
+                <&kp LSHFT>;
         };
 
         /* ========= JP(OS=日本語配列)向け 記号マクロ ここから========= */
