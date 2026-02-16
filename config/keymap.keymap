@@ -184,7 +184,7 @@
             slow-release;
             layers = <3 4>;
         };
-        
+
         combo_mclk2 {
             bindings = <&mkp MCLK>;
             key-positions = <26 27>;
@@ -200,7 +200,6 @@
             slow-release;
             layers = <3 4>;
         };
-
     };
 
     /* --- クイックタップ・タップダンスなど --- */
@@ -756,11 +755,11 @@
 
         lr_num {
             bindings = <
-&none  &none         &none       &none      &none   &none                                       &none         &none     &none         &none      &none      &none
-&none  &kp BSPC      &kp N7      &kp N8     &kp N9  &jp_plus                                    &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
-&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp N4  &lt 5 MINUS  &none          &none           &jp_asterisk  &lt 5 N4  &kp N5        &kp N6     &kp MINUS  &none
-&none  &kp SLASH     &kp N1      &kp N2     &kp N3  &jp_equal    &kp TAB        &kp TAB         &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
-&none  &kp ESC       &kp PERIOD  &none      &none   &lt 8 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 6      &none
+&none  &none         &none       &none      &none         &none                                       &none         &none     &none         &none      &none      &none
+&none  &kp BSPC      &kp N7      &kp N8     &kp N9        &jp_plus                                    &kp BSPC      &kp N7    &kp N8        &kp N9     &jp_plus   &none
+&none  &jp_asterisk  &lt 23 N4   &lt 22 N5  &kp NUMBER_6  &lt 5 MINUS  &none          &none           &jp_asterisk  &lt 5 N4  &kp N5        &kp N6     &kp MINUS  &none
+&none  &kp SLASH     &kp N1      &kp N2     &kp N3        &jp_equal    &kp TAB        &kp TAB         &jp_equal     &kp N1    &kp NUMBER_2  &kp N3     &kp SLASH  &none
+&none  &kp ESC       &kp PERIOD  &none      &none         &lt 8 N0     &td_enal_Rsc2  &td_enal_Rsym2  &lt 9 SPACE   &kp N0    &kp PERIOD    &jp_colon  &mo 6      &none
             >;
         };
 
