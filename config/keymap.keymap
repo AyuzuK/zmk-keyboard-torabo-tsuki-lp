@@ -137,8 +137,22 @@
             timeout-ms = <80>;
         };
 
+        combo_lshift {
+            bindings = <&kp LSHIFT>;
+            key-positions = <57 58>;
+            timeout-ms = <80>;
+            layers = <0>;
+        };
+
+        combo_rshift {
+            bindings = <&kp RSHIFT>;
+            key-positions = <59 60>;
+            timeout-ms = <80>;
+            layers = <0>;
+        };
+
         combo_rclk {
-            bindings = <&mkp RCLK>;
+            bindings = <&mkp LCLK>;
             key-positions = <33 34>;
             timeout-ms = <80>;
             slow-release;              /* ★重要：全キー離すまで保持 */
@@ -146,10 +160,18 @@
         };
 
         combo_shift_rclk {
-            bindings = <&shift_rclk>;
+            bindings = <&mkp RCLK>;
             key-positions = <47 48>;
             timeout-ms = <80>;
             slow-release;              /* ★重要：全キー離すまで保持 */
+            layers = <3 4>;
+        };
+
+        combo_shift_rclk3 {
+            bindings = <&shift_rclk>;
+            key-positions = <19 20>;
+            timeout-ms = <80>;
+            slow-release;
             layers = <3 4>;
         };
 
@@ -266,6 +288,17 @@
            2回目: &jp_r_kakko (tap=Enter, LAYER_Rsym2(10)) */
 
             bindings = <&jp_l_kakko>, <&jp_r_kakko>;
+        };
+
+        td_kakko2: td_kakko2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+
+            /* 1 tap: &jp_r_kakko
+           2 taps: &jp_l_kakko */
+
+            bindings = <&jp_r_kakko>, <&jp_l_kakko>;
         };
     };
 
@@ -748,7 +781,7 @@
 &none  &none             &none         &none     &none  &none                                             &none      &none           &none             &none      &none                 &none
 &none  &kp Q             &kp W         &kp E     &kp R  &kp T                                             &kp Y      &kp U           &kp I             &kp O      &kp P                 &none
 &none  &mt LCTRL A       &lt 23 S      &lt 22 D  &kp F  &lt 5 G         &none             &none           &lt 25 H   &lt 5 J         &lt 26 K          &kp L      &mt LGUI MINUS        &none
-&none  &mt LEFT_SHIFT Z  &kp X         &kp C     &kp V  &lt 7 B         &td_kakko         &td_kakko       &lt 7 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
+&none  &mt LEFT_SHIFT Z  &kp X         &kp C     &kp V  &lt 7 B         &td_kakko         &td_kakko2      &lt 7 N    &kp M           &lt 24 COMMA      &kp DOT    &mt RIGHT_SHIFT FSLH  &none
 &none  &kp ESC           &kp LEFT_WIN  &none     &none  &qt_lt 8 SPACE  &mt LEFT_ALT F14  &td_enal_Rsym2  &lt 9 F13  &qt_lt 11 BSPC  &qt_mt LCTRL DEL  &jp_colon  &mo 6                 &none
             >;
         };
@@ -777,7 +810,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans     &trans                  &trans  &trans     &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans     &trans                  &trans  &trans     &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mkp LCLK  &trans  &trans  &trans  &trans  &mkp LCLK  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans
             >;
@@ -787,7 +820,7 @@
             bindings = <
 &none  &none      &none            &none             &none          &none                                          &none   &none          &none          &none   &none   &none
 &none  &trans     &kp LA(UP)       &trans            &kp LC(PG_UP)  &kp LC(PG_DN)                                  &trans  &trans         &trans         &trans  &trans  &none
-&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &mkp LCLK      &trans         &trans  &trans  &none
+&none  &kp LCTRL  &lt 23 LA(LEFT)  &lt 22 LA(RIGHT)  &mkp LCLK      &trans         &trans          &trans          &trans  &trans         &trans         &trans  &trans  &none
 &none  &kp LSHFT  &trans           &trans            &trans         &trans         &kp TAB         &kp TAB         &trans  &trans         &trans         &trans  &trans  &none
 &none  &kp ESC    &kp LGUI         &trans            &trans         &mo 8          &mt LALT ENTER  &mt RALT ENTER  &mo 9   &kp BACKSPACE  &mt RCTRL DEL  &trans  &mo 6   &none
             >;
