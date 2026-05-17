@@ -222,6 +222,20 @@
             slow-release;
             layers = <3 4>;
         };
+
+        combo_qw_shift_tab_n000 {
+            bindings = <&shift_tab_n000>;
+            key-positions = <13 14>;
+            timeout-ms = <80>;
+            layers = <0>;
+        };
+
+        combo_op_shift_tab_n000 {
+            bindings = <&shift_tab_n000>;
+            key-positions = <21 22>;
+            timeout-ms = <80>;
+            layers = <0>;
+        };
     };
 
     /* --- クイックタップ・タップダンスなど --- */
@@ -743,6 +757,32 @@
             bindings = <&kp F13 &kp Y &kp PERIOD &kp F13 &kp ENTER>;
             wait-ms = <10>;
             tap-ms = <10>;
+        };
+
+        /* ========= Shift+Tab×11, Space, Shift+Tab×6, Space, "n000" ========= */
+
+        shift_tab_n000: shift_tab_n000 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp SPACE &kp N &kp N0 &kp N0 &kp N0>;
         };
 
     };
