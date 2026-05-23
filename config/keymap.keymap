@@ -223,16 +223,16 @@
             layers = <3 4>;
         };
 
-        combo_qw_shift_tab_n000 {
+        combo_er_shift_tab_n000 {
             bindings = <&shift_tab_n000>;
-            key-positions = <13 14>;
+            key-positions = <15 16>;
             timeout-ms = <80>;
             layers = <0>;
         };
 
-        combo_op_shift_tab_n000 {
-            bindings = <&shift_tab_n000>;
-            key-positions = <21 22>;
+        combo_yu_n000 {
+            bindings = <&n000>;
+            key-positions = <18 19>;
             timeout-ms = <80>;
             layers = <0>;
         };
@@ -298,10 +298,10 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
 
-            /* 1回目: &jp_l_kakko (tap=Enter, hold=Alt)
-           2回目: &jp_r_kakko (tap=Enter, LAYER_Rsym2(10)) */
+            /* 1 tap: &jp_l_kakko
+           2 taps: &jp_l_kakukakko */
 
-            bindings = <&jp_l_kakko>, <&jp_r_kakko>;
+            bindings = <&jp_l_kakko>, <&jp_l_kakukakko>;
         };
 
         td_kakko2: td_kakko2 {
@@ -310,9 +310,9 @@
             tapping-term-ms = <250>;
 
             /* 1 tap: &jp_r_kakko
-           2 taps: &jp_l_kakko */
+           2 taps: &jp_r_kakukakko */
 
-            bindings = <&jp_r_kakko>, <&jp_l_kakko>;
+            bindings = <&jp_r_kakko>, <&jp_r_kakukakko>;
         };
     };
 
@@ -764,8 +764,8 @@
         shift_tab_n000: shift_tab_n000 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
+            wait-ms = <30>;
+            tap-ms = <30>;
             bindings =
                 <&macro_press>,
                 <&kp LSHIFT>,
@@ -783,6 +783,14 @@
                 <&kp LSHIFT>,
                 <&macro_tap>,
                 <&kp SPACE &kp N &kp N0 &kp N0 &kp N0>;
+        };
+
+        n000: n000 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp N &kp N0 &kp N0 &kp N0>;
         };
 
     };
