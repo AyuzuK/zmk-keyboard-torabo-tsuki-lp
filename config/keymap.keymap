@@ -227,14 +227,12 @@
             bindings = <&shift_tab_n000>;
             key-positions = <15 16>;
             timeout-ms = <80>;
-            layers = <0>;
         };
 
         combo_yu_n000 {
             bindings = <&n000>;
             key-positions = <18 19>;
             timeout-ms = <80>;
-            layers = <0>;
         };
     };
 
@@ -721,7 +719,7 @@
         mic: mic {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5　&kp M &kp ENTER>;
+            bindings = <&kp LS(K) &kp MINUS &kp A &kp R &kp I &kp T &kp A &kp N2 &kp N2 &kp N5 &kp M &kp ENTER>;
             label = "MIC";
             wait-ms = <10>;
             tap-ms = <10>;
