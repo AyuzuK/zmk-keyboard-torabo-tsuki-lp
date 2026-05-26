@@ -223,17 +223,6 @@
             layers = <3 4>;
         };
 
-        combo_er_shift_tab_n000 {
-            bindings = <&shift_tab_n000>;
-            key-positions = <15 16>;
-            timeout-ms = <80>;
-        };
-
-        combo_yu_n000 {
-            bindings = <&n000>;
-            key-positions = <18 19>;
-            timeout-ms = <80>;
-        };
     };
 
     /* --- クイックタップ・タップダンスなど --- */
@@ -762,8 +751,8 @@
         shift_tab_n000: shift_tab_n000 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <20>;
+            tap-ms = <20>;
             bindings =
                 <&macro_press>,
                 <&kp LSHIFT>,
@@ -783,12 +772,14 @@
                 <&kp SPACE &kp N &kp N0 &kp N0 &kp N0>;
         };
 
-        n000: n000 {
+        /* ========= Tab×9, "n000" ========= */
+
+        tab_n000: tab_n000 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&kp N &kp N0 &kp N0 &kp N0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings = <&kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp N &kp N0 &kp N0 &kp N0>;
         };
 
     };
@@ -866,11 +857,11 @@
 
         sub {
             bindings = <
-&none  &none  &none  &none  &none       &none                                       &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none  &none       &none                                       &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none  &jp_hanzen  &none             &none      &none          &none        &none    &jp_hanzen  &none  &none  &none
-&none  &none  &none  &none  &none       &none             &none      &none          &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none  &none       &lt 14 LS(SPACE)  &kp ENTER  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &none  &none  &none
+&none  &none  &none  &none            &none       &none                                       &none        &none    &none       &none  &none  &none
+&none  &none  &none  &shift_tab_n000  &tab_n000  &none                                        &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none            &jp_hanzen  &none             &none      &none          &none        &none    &jp_hanzen  &none  &none  &none
+&none  &none  &none  &none            &none       &none             &none      &none          &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none            &none       &lt 14 LS(SPACE)  &kp ENTER  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &none  &none  &none
             >;
         };
 
