@@ -782,6 +782,14 @@
             bindings = <&kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp TAB &kp N &kp N0 &kp N0 &kp N0>;
         };
 
+        n000: n000 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp N &kp N0 &kp N0 &kp N0>;
+        };
+
     };
 
     /* --- 単押・長押設定：グローバル hold-tap 設定 --- */
@@ -858,10 +866,10 @@
         sub {
             bindings = <
 &none  &none  &none  &none            &none       &none                                       &none        &none    &none       &none  &none  &none
-&none  &none  &none  &shift_tab_n000  &tab_n000  &none                                        &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none            &jp_hanzen  &none             &none      &none          &none        &none    &jp_hanzen  &none  &none  &none
-&none  &none  &none  &none            &none       &none             &none      &none          &none        &none    &none       &none  &none  &none
-&none  &none  &none  &none            &none       &lt 14 LS(SPACE)  &kp ENTER  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &none  &none  &none
+&none  &none  &none  &none            &none       &none                                        &none        &none    &none       &none  &none  &none
+&none  &none  &none  &none            &jp_hanzen  &none             &none      &none          &none        &none    &jp_hanzen  &shift_tab_n000  &none  &none
+&none  &none  &none  &none            &none       &none             &none      &none          &none        &none    &none       &tab_n000  &none  &none
+&none  &none  &none  &none            &none       &lt 14 LS(SPACE)  &kp ENTER  &kp LA(ENTER)  &kp LC(F13)  &kp DEL  &none       &n000  &none  &none
             >;
         };
 
